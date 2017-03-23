@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import NavBar from './components/NavBar';
+import Panel from './components/Panel';
 
-class UghWorld extends React.Component {
+class Reactpage extends React.Component {
   render() {
     return (
       <div>
-      <p>ughwordreactdivereeawfrld</p>
+        <NavBar/>
+        
+        <p>hello world</p>
+        <Panel/>
       </div>
     );
   }
 }
 
 ReactDOM.render(
-  <UghWorld />,
+  <Reactpage />,
   document.getElementById('react-div'));

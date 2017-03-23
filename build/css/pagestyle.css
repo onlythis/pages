@@ -10,8 +10,16 @@
   border-top-right-radius: 3px;
 }
 
-.fb-search {
-  width: 395px !important;
+.search {
+  width: 195px !important;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-color: #999999;
+  color: white;
+}
+
+input, input::-webkit-input-placeholder, textarea {
+  color: white !important;
 }
 
 a, a:visited {
@@ -25,7 +33,7 @@ a, a:visited {
 
 /* Blue background */
 .navbar {
-  background-color: #3a5795;
+  background-color: #3ad755;
 }
 
 /* Make house logo white, even if the user hovers over it */
@@ -79,8 +87,8 @@ a, a:visited {
   /* Make it a bit wider. */
   width: 50px;
   /* Make the border's curve more gentle */
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   /* Apply a light-grey border color. You can specify colors as names, rgb
      triplets, or hex numbers. */
   border-top: 1px solid rgb(204, 204, 204);
@@ -130,10 +138,6 @@ button.fb-notifications:hover {
 body {
   padding-top: 60px;
   background-color: #e9eaed;
-}
-
-.fb-search {
-  width: 400px;
 }
 
 .fb-trending ul.nav a {
