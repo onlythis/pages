@@ -35,6 +35,27 @@ a, a:visited {
 .navbar {
   background-color: #3ad755;
 }
+.navbar-right {
+  padding-right: 50px;
+}
+
+.dropdown-menu .sub-menu {
+    left: 100%;
+    top: 0;
+    visibility: hidden;
+}
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.nav-pills .dropdown-menu {
+    margin-top: 0;
+}
+
 
 /* Make house logo white, even if the user hovers over it */
 .navbar .navbar-brand,
@@ -47,7 +68,7 @@ a, a:visited {
 .navbar button {
   background-color: transparent;
   border: none;
-  color: #2e467c;
+  color: white;
 }
 
 /* Make buttons slightly darker when the user hovers over it, like Facebook
