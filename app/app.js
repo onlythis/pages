@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import NavBar from './components/NavBar';
 import Panel from './components/Panel';
+import Banner from './components/Banner';
 
 class Reactpage extends React.Component {
   render() {
     return (
       <div>
         <NavBar/>
-        
-        <p>hello world</p>
+        <Banner/>
         <Panel/>
       </div>
     );
