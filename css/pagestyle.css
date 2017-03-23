@@ -1,3 +1,15 @@
+body {
+  padding-top: 60px;
+  background-color: #e9eaed;
+  background-image: url('../img/gray_wolf.jpg');
+  background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+canvas {
+  margin: auto;
+}
 
 .chat-popup {
   width: 300px;
@@ -30,7 +42,29 @@ a, a:visited {
 .green {
   color: green;
 }
-
+div.panel, div.panel-footer {
+  background: rgba(122, 130, 136, 0.6)!important;
+}
+div.panel-footer.btn-group {
+  margin: auto;
+  font-size: 50px;
+}
+p.panel-header {
+  margin:auto;
+  margin-top: 15px;
+  width: 33.3%;
+  text-align: center;
+  color: blue;
+  font-size: 20px;
+}
+.banner {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  background-color: red;
+  color: blue;
+  font-size: 24px;
+}
 /* Blue background */
 .navbar {
   background-color: #3ad755;
@@ -156,10 +190,7 @@ button.fb-notifications:hover {
   background-color: #2e467c;
 }
 
-body {
-  padding-top: 60px;
-  background-color: #e9eaed;
-}
+
 
 .fb-trending ul.nav a {
   padding-left: 5px;
