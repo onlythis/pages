@@ -1,7 +1,7 @@
 body {
   padding-top: 60px;
   background-color: #e9eaed;
-  background-image: url('../img/gray_wolf.jpg');
+  background-image: url('../img/gray_wolf.JPG');
   background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
