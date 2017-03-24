@@ -15,7 +15,7 @@ export default class SearchBar extends React.Component {
     var trimmedTerm = this.state.searchTerm.trim();
     if (trimmedTerm !== "") {
       // Navigate to /search?q=[trimmedTerm]
-      this.context.router.push({ pathname: "/search", query: { q: trimmedTerm } });
+      this.props.searchHandler(trimmedTerm);
     }
   }
 

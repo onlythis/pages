@@ -2,6 +2,15 @@ import SearchBar from './Searchbar';
 import React from 'react';
 
 export default class Navbar extends React.Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    searchHandler: props.searchHandler
+  };
+}
+  searchHandler(e) {
+    this.props.searchHandler(e);
+  }
   render() {
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
@@ -37,7 +46,7 @@ export default class Navbar extends React.Component {
               </div>
             </div>
             <div className="nav navbar-nav navbar-right">
-              <SearchBar/>
+              <SearchBar searchHandler={(e) => this.searchHandler(e)}/>
             </div>
           </div>
         </div>
