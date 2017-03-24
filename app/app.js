@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import NavBar from './components/NavBar';
 import Panel from './components/Panel';
 import Banner from './components/Banner';
+import TwoDTreeCanvas from './components/TwoDTreeCanvas';
 
 class Reactpage extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
-    searched: "Daniel C Snyder"
+    searched: "Daniel Chu Snyder"
   };
 }
   handleSearch(e) {
@@ -22,6 +23,7 @@ class Reactpage extends React.Component {
       <div>
         <NavBar searchHandler={(e) => this.handleSearch(e)}/>
         <Banner searched={this_search}/>
+        <TwoDTreeCanvas/>
         <Panel/>
       </div>
     );

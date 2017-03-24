@@ -4,9 +4,6 @@ import React from 'react';
 export default class Navbar extends React.Component {
   constructor(props) {
   super(props);
-  this.state = {
-    searchHandler: props.searchHandler
-  };
 }
   searchHandler(e) {
     this.props.searchHandler(e);

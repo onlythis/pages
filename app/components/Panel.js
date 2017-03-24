@@ -4,30 +4,23 @@ export default class Panel extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
-    value: "asdf"
+    value: 0
   };
 }
 
   handleRefresh(e) {
   e.preventDefault();
   var value=this.state.value;
-    this.setState({value: value + "f"});
+    this.setState({value: value + 1});
   }
   render() {
     var value = this.state.value;
-
     return (
     <div className="col-md-6">
     <div className="panel panel-default">
-      <p className="panel-header">TreeTwoD</p>
+      <p className="panel-header">Panel</p>
       <hr />
-      <div className="panel-body">
-        <div className="row">
-          <div className="col-md-12">
-            <canvas width = "512" height = "512" id = "my_Canvas"></canvas>
-            </div>
-          </div>
-        </div>
+
         <div className="panel-footer">
           <div className="row">
             <div className="col-md-12">

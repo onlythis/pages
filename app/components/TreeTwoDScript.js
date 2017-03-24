@@ -3,7 +3,6 @@ function treeGen(){
   var width=64;
   var height=64;
   var tree_size=16;
-  var randomness = 1;
   var roots=new Array(0);
   var grid=new Array(64);
   for(var x = 0; x<64; x++){
@@ -65,17 +64,16 @@ function treeGen(){
     }
   }
   function growBranch(x, y, len, init_dirr){
-    if(randomness == 1){ var randfunc = TrueRandom;}
     var path = new Array(0);
     var dirr = init_dirr;
     for(var i = 0; i<len; i++){
-      dirr = randfunc(init_dirr, dirr);
+      dirr = dontTurnBack(init_dirr, dirr);
       if(i<8)
       dirr=init_dirr
       var n = 0;
       while(checkGrid2(x,y,dirr)){
         if(n>50) {return path;}
-        dirr = randfunc(init_dirr,dirr);
+        dirr=dontTurnBack(init_dirr,dirr);
         n+=1;
       }
       if(dirr==0) {y-=1;}
@@ -143,13 +141,6 @@ function treeGen(){
       return grid[posx-1][posy];
     }
   }
-  function TrueRandom() {
-    var val = Math.random();
-    if(val<=.25){return 0;}
-    if(val<=.5){return 1;}
-    if(val<=.75){return 2;}
-    return 3;
-  }
   function dontTurnBack(init, dirr){
     if(Math.random()>.5)
     return init;
@@ -171,6 +162,7 @@ function treeGen(){
   }
   return tree();
 }
+draw();
 function vertsGen(){
   var verts = new Array(0);
   var grid = treeGen();
@@ -254,5 +246,3 @@ function draw(){
   // Draw the triangle
   gl.drawArrays(gl.LINES, 0, vertices.length/2);
 }
-
-draw();
