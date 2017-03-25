@@ -1,14 +1,14 @@
 
-function treeGen(){
-  var width=64;
-  var height=64;
+function treeGen(width, height){
+  var width=width;
+  var height=height;
   var tree_size=16;
   var randomness = 1;
   var roots=new Array(0);
-  var grid=new Array(64);
-  for(var x = 0; x<64; x++){
-    grid[x]=new Array(64);
-    for(var y = 0; y<64; y++){
+  var grid=new Array(width);
+  for(var x = 0; x<width; x++){
+    grid[x]=new Array(height);
+    for(var y = 0; y<height; y++){
       grid[x][y]=0;
     }
   }
@@ -98,7 +98,7 @@ function treeGen(){
       return grid[posx][posy-1];
     }
     if(dirr==1){
-      if(posx>62) {return 1;}
+      if(posx>width-2) {return 1;}
       var two=0;
       for(var x = 0; x<4; x++){
         if(checkGrid3(posx+1,posy,x)==1) {two+=1;}
@@ -107,7 +107,7 @@ function treeGen(){
       return grid[posx+1][posy];
     }
     if(dirr==2){
-      if(posy>62) {return 1;}
+      if(posy>height-2) {return 1;}
       var two=0;
       for(var x = 0; x<4; x++){
         if(checkGrid3(posx,posy+1,x)==1) {two+=1;}
@@ -131,11 +131,11 @@ function treeGen(){
       return grid[posx][posy-1];
     }
     if(dirr==1){
-      if(posx>62) {return 1;}
+      if(posx>width-2) {return 1;}
       return grid[posx+1][posy];
     }
     if(dirr==2){
-      if(posy>62) {return 1;}
+      if(posy>height-2) {return 1;}
       return grid[posx][posy+1];
     }
     if(dirr==3){
@@ -178,27 +178,27 @@ function getSyncScriptParams() {
          var scriptName = lastScript;
          return {
              width : scriptName.getAttribute('width'),
-             height : scriptName.getAttribute('data-height')
+             height : scriptName.getAttribute('height')
          };
  }
 
 function vertsGen(){
   var params = getSyncScriptParams();
-  params = parseInt(params.width);
-  console.log(params);
+  width = parseInt(params.width);
+  height = parseInt(params.height);
   var verts = new Array(0);
-  var grid = treeGen();
-  for(var x = 0; x<grid[0].length; x++){
-    for(var y = 0; y<grid[1].length; y++){
+  var grid = treeGen(width, height);
+  for(var x = 0; x<grid.length; x++){
+    for(var y = 0; y<grid[0].length; y++){
       if(grid[x][y]){
-        verts.push(x/(params/2)-1);
-        verts.push(y/32-1/64-1);
-        verts.push(x/32-1);
-        verts.push(y/32+1/64-1);
-        verts.push(x/32-1/64-1);
-        verts.push(y/32-1);
-        verts.push(x/32+1/64-1);
-        verts.push(y/32-1);
+        verts.push(x/  (width / 2) - 1);
+        verts.push(y/ (height / 2) - 1 / height - 1);
+        verts.push(x/  (width / 2) - 1);
+        verts.push(y /(height / 2) + 1 / height - 1);
+        verts.push(x / (width / 2) - 1 / width - 1);
+        verts.push(y /(height / 2) - 1);
+        verts.push(x / (width / 2) + 1 / width - 1);
+        verts.push(y /(height / 2) - 1);
       }
     }
   }
@@ -230,7 +230,7 @@ function draw(){
   //Compile the vertex shader
   gl.compileShader(vertShader);
   //Fragment shader source code
-  var fragCode = 'void main(void) {' + 'gl_FragColor = vec4(0.0, 0.0, 0.0, 0.1);' + '}';
+  var fragCode = 'void main(void) {' + 'gl_FragColor = vec4(0.0, 1.0, 0.0, 0.1);' + '}';
   // Create fragment shader object
   var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
   // Attach fragment shader source code

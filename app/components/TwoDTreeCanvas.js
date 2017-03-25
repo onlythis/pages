@@ -5,18 +5,21 @@ export default class TwoDTreeCanvas extends React.Component {
     super(props);
     this.state = {
       count: 0,
-      widthValue: 64
+      widthValue: 64,
+      heightValue: 64
     };
     this.refresh();
   }
   refresh() {
     var width = parseInt(this.state.widthValue);
+    var height = parseInt(this.state.heightValue);
     if(width>512 || width < 1){
       console.log("invalid input");
     }
     const script = document.createElement("script");
     script.src = "scripts/TreeTwoD.js";
     script.setAttribute("width", width.toString());
+    script.setAttribute("height", height.toString());
 
     script.async = true;
     document.body.appendChild(script);
@@ -27,9 +30,13 @@ export default class TwoDTreeCanvas extends React.Component {
   var count = this.state.count;
   this.setState({count: count+1});
   }
-  handleKeyUp(e) {
+  handleKeyUpWidth(e) {
     e.preventDefault();
     this.setState({widthValue: e.target.value})
+  }
+  handleKeyUpHeight(e) {
+    e.preventDefault();
+    this.setState({heightValue: e.target.value})
   }
 
   render() {
@@ -52,7 +59,11 @@ export default class TwoDTreeCanvas extends React.Component {
                 </div>
                 <div className="btn-group panel-footer-btn" role="group">
                   Width:
-                  <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUp(e)} />
+                  <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpWidth(e)} />
+                </div>
+                <div className="btn-group panel-footer-btn" role="group">
+                  Height:
+                  <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpHeight(e)} />
                 </div>
                 <p>Refresh Count: {count}</p>
               </div>
