@@ -171,13 +171,27 @@ function treeGen(){
   }
   return tree();
 }
+
+function getSyncScriptParams() {
+         var scripts = document.getElementsByTagName('script');
+         var lastScript = scripts[scripts.length-1];
+         var scriptName = lastScript;
+         return {
+             width : scriptName.getAttribute('width'),
+             height : scriptName.getAttribute('data-height')
+         };
+ }
+
 function vertsGen(){
+  var params = getSyncScriptParams();
+  params = parseInt(params.width);
+  console.log(params);
   var verts = new Array(0);
   var grid = treeGen();
   for(var x = 0; x<grid[0].length; x++){
     for(var y = 0; y<grid[1].length; y++){
       if(grid[x][y]){
-        verts.push(x/32-1);
+        verts.push(x/(params/2)-1);
         verts.push(y/32-1/64-1);
         verts.push(x/32-1);
         verts.push(y/32+1/64-1);

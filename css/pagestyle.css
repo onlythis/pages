@@ -11,15 +11,14 @@ canvas {
   margin: auto;
 }
 
-.chat-popup {
-  width: 300px;
-  position: fixed;
-  bottom: 0px;
-  right: 20px;
-  border: 1px solid #000;
-  border-bottom: none;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+button.refresh {
+  margin-right: 20px;
+}
+input.panel-input {
+  margin-left: 10px;
+  margin-right: 10px;
+  background: rgba(122, 130, 136, 0.8)!important;
+  width: 50px !important;
 }
 
 .search {
