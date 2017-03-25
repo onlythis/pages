@@ -4,15 +4,21 @@ export default class TwoDTreeCanvas extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      count: 0,
+      widthValue: 64
     };
     this.refresh();
   }
   refresh() {
+    var width = parseInt(this.state.widthValue);
+    if(width>512 || width < 1){
+      console.log("invalid input");
+    }
     const script = document.createElement("script");
     script.src = "scripts/TreeTwoD.js";
-    script.async = true;
+    script.setAttribute("width", width.toString());
 
+    script.async = true;
     document.body.appendChild(script);
   }
   handleRefresh(e) {
@@ -21,6 +27,11 @@ export default class TwoDTreeCanvas extends React.Component {
   var count = this.state.count;
   this.setState({count: count+1});
   }
+  handleKeyUp(e) {
+    e.preventDefault();
+    this.setState({widthValue: e.target.value})
+  }
+
   render() {
     var count = this.state.count;
     return (
@@ -35,9 +46,13 @@ export default class TwoDTreeCanvas extends React.Component {
             <div className="row">
               <div className="col-md-12">
                 <div className="btn-group panel-footer-btn" role="group">
-                  <button type="button" className="btn btn-default" onClick={(e) => this.handleRefresh(e)}>
+                  <button type="button" className="btn btn-default refresh" onClick={(e) => this.handleRefresh(e)}>
                     Refresh
                   </button>
+                </div>
+                <div className="btn-group panel-footer-btn" role="group">
+                  Width:
+                  <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUp(e)} />
                 </div>
                 <p>Refresh Count: {count}</p>
               </div>
