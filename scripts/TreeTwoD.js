@@ -1,9 +1,9 @@
 
-function treeGen(width, height){
+function treeGen(width, height, branch_len, rand_func){
   var width=width;
   var height=height;
-  var tree_size=16;
-  var randomness = 1;
+  var branch_len=branch_len;
+  var rand = rand_func;
   var roots=new Array(0);
   var grid=new Array(width);
   for(var x = 0; x<width; x++){
@@ -23,7 +23,7 @@ function treeGen(width, height){
     roots.push(new Array(0));
     roots[0].push(new Array(startx,starty));
     roots.push(new Array(0));
-    roots[1].push(growBranch(startx,starty,tree_size,1));
+    roots[1].push(growBranch(startx,starty,branch_len,1));
     while(true){
       var prev=depth;
       for(var i = 0; i<roots[0].length; i++){
@@ -39,7 +39,6 @@ function treeGen(width, height){
   }
   function searchOpenings(x,y,path){
     var takens = 0;
-    var skips = 0;
     var dirr = -1;
     for(var i =0; i<path.length; i++){
       dirr=path[i];
@@ -47,11 +46,10 @@ function treeGen(width, height){
       for(var n =0; n<4; n++){
         takens+=checkGrid2(x,y,n);
       }
-      if(takens<=2) {skips+=1;}
-      if(skips>2){
+      if(takens<=3){
         for(var n = 0; n<4; n++){
           if(checkGrid2(x,y,n)==0){
-            var new_path = growBranch(x,y,tree_size,n);
+            var new_path = growBranch(x,y,branch_len,n);
             roots[0].push(new Array(x,y));
             roots[1].push(new_path);
           }
@@ -65,17 +63,17 @@ function treeGen(width, height){
     }
   }
   function growBranch(x, y, len, init_dirr){
-    if(randomness == 1){ var randfunc = TrueRandom;}
+    if(rand == 1){ var rand_func = TrueRandom;}
+    else {var rand_func = Straighter;}
     var path = new Array(0);
     var dirr = init_dirr;
     for(var i = 0; i<len; i++){
-      dirr = randfunc(init_dirr, dirr);
-      if(i<8)
-      dirr=init_dirr
+      dirr = rand_func(init_dirr, dirr);
+
       var n = 0;
       while(checkGrid2(x,y,dirr)){
         if(n>50) {return path;}
-        dirr = randfunc(init_dirr,dirr);
+        dirr = rand_func(init_dirr,dirr);
         n+=1;
       }
       if(dirr==0) {y-=1;}
@@ -150,7 +148,7 @@ function treeGen(width, height){
     if(val<=.75){return 2;}
     return 3;
   }
-  function dontTurnBack(init, dirr){
+  function Straighter(init, dirr){
     if(Math.random()>.5)
     return init;
     else{
@@ -178,7 +176,9 @@ function getSyncScriptParams() {
          var scriptName = lastScript;
          return {
              width : scriptName.getAttribute('width'),
-             height : scriptName.getAttribute('height')
+             height : scriptName.getAttribute('height'),
+             branch_len : scriptName.getAttribute('branch_len'),
+             rand_func : scriptName.getAttribute('rand_func')
          };
  }
 
@@ -186,8 +186,10 @@ function vertsGen(){
   var params = getSyncScriptParams();
   width = parseInt(params.width);
   height = parseInt(params.height);
+  branch_len = parseInt(params.branch_len);
+  rand_func = parseInt(params.rand_func);
   var verts = new Array(0);
-  var grid = treeGen(width, height);
+  var grid = treeGen(width, height, branch_len, rand_func);
   for(var x = 0; x<grid.length; x++){
     for(var y = 0; y<grid[0].length; y++){
       if(grid[x][y]){
@@ -258,7 +260,7 @@ function draw(){
   gl.enableVertexAttribArray(coord);
   /* Step5: Drawing the required object (triangle) */
   // Clear the canvas
-  gl.clearColor(0.5, 0.5, 0.5, 0.9);
+  gl.clearColor(0, 0.5, 0.5, 0.6);
   // Enable the depth test
   gl.enable(gl.DEPTH_TEST);
   // Clear the color buffer bit
