@@ -2,9 +2,9 @@ body {
   padding-top: 60px;
   background-color: #e9eaed;
   background-image: url('../img/gray_wolf.JPG');
-  background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
-    background-position: center center;
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
 }
 
 canvas {
@@ -42,7 +42,7 @@ a, a:visited {
   color: green;
 }
 div.panel, div.panel-footer {
-  background: rgba(122, 130, 136, 0.9)!important;
+  background: rgba(122, 130, 136, 0.6)!important;
 }
 div.panel-footer.btn-group {
   margin: auto;

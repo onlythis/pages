@@ -6,13 +6,17 @@ export default class TwoDTreeCanvas extends React.Component {
     this.state = {
       count: 0,
       widthValue: 64,
-      heightValue: 64
+      heightValue: 64,
+      BranchLen: 16,
+      RandFunc: 1
     };
     this.refresh();
   }
   refresh() {
     var width = parseInt(this.state.widthValue);
     var height = parseInt(this.state.heightValue);
+    var BranchLen = parseInt(this.state.BranchLen);
+    var RandFunc = parseInt(this.state.RandFunc);
     if(width>512 || width < 1){
       console.log("invalid input");
     }
@@ -20,7 +24,8 @@ export default class TwoDTreeCanvas extends React.Component {
     script.src = "scripts/TreeTwoD.js";
     script.setAttribute("width", width.toString());
     script.setAttribute("height", height.toString());
-
+    script.setAttribute("branch_len", BranchLen.toString());
+    script.setAttribute("rand_func", RandFunc.toString());
     script.async = true;
     document.body.appendChild(script);
   }
@@ -37,6 +42,14 @@ export default class TwoDTreeCanvas extends React.Component {
   handleKeyUpHeight(e) {
     e.preventDefault();
     this.setState({heightValue: e.target.value})
+  }
+  handleKeyUpBranchLen(e) {
+    e.preventDefault();
+    this.setState({BranchLen: e.target.value})
+  }
+  handleKeyUpRandFunc(e) {
+    e.preventDefault();
+    this.setState({RandFunc: e.target.value})
   }
 
   render() {
@@ -65,7 +78,15 @@ export default class TwoDTreeCanvas extends React.Component {
                   Height:
                   <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpHeight(e)} />
                 </div>
-                <p>Refresh Count: {count}</p>
+                <div className="btn-group panel-footer-btn" role="group">
+                  Branch Length:
+                  <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpBranchLen(e)} />
+                </div>
+                <div className="btn-group panel-footer-btn" role="group">
+                  Random func:
+                  <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpRandFunc(e)} />
+                </div>
+                <p>Count: {count}</p>
               </div>
             </div>
           </div>
