@@ -1,5 +1,6 @@
 import SearchBar from './Searchbar';
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -13,16 +14,16 @@ export default class Navbar extends React.Component {
       <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container-fullwidth">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">
+              <Link to='#'><button type="button" className="btn btn-default navbar-btn">
               <span className="glyphicon glyphicon-home"></span>
-            </a>
+              </button></Link>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div className="nav navbar-nav navbar-left">
                 <div className="btn-group" role="group">
-                  <button type="button" className="btn btn-default navbar-btn">
-                    Home
-                  </button>
+                  <Link to="resume"><button type="button" className="btn btn-default navbar-btn">
+                    Resume
+                  </button></Link>
                 </div>
                 <div className="btn-group" role="group">
                 <ul className="nav nav-pills dropdown-ul">
