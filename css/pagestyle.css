@@ -21,6 +21,46 @@ input.panel-input {
   width: 50px !important;
 }
 
+div.panel-default p.panel-content {
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+p.panel-header {
+  margin:auto;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  color: #99ff99;
+  font-size: 20px;
+}
+
+p.panel-header-left {
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 15px;
+  color: #99ff99;
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+p.panel-header-right {
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 15px;
+  color: #99ff99;
+  font-size: 16px;
+}
+#work-panel {
+  margin-top: 0px;
+}
+#bottom-work-panel {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+p.work-content {
+  font-size: 16px !important;
+}
+
 .search {
   width: 195px !important;
   border-top-left-radius: 15px;
@@ -49,14 +89,7 @@ div.panel-footer.btn-group {
   margin: auto;
   font-size: 50px;
 }
-p.panel-header {
-  margin:auto;
-  margin-top: 15px;
-  width: 33.3%;
-  text-align: center;
-  color: blue;
-  font-size: 20px;
-}
+
 .banner {
   margin: auto;
   width: 50%;
