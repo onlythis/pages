@@ -194,17 +194,60 @@ function vertsGen(){
     for(var y = 0; y<grid[0].length; y++){
       if(grid[x][y]){
         verts.push(x/  (width / 2) - 1);
-        verts.push(y/ (height / 2) - 1 / height - 1);
-        verts.push(x/  (width / 2) - 1);
-        verts.push(y /(height / 2) + 1 / height - 1);
-        verts.push(x / (width / 2) - 1 / width - 1);
         verts.push(y /(height / 2) - 1);
-        verts.push(x / (width / 2) + 1 / width - 1);
-        verts.push(y /(height / 2) - 1);
+        verts.push(0);
+        verts.push((x)/  (width / 2) - 1.02);
+        verts.push((y) /(height / 2) - 1);
+        verts.push(0);
+        verts.push((x)/  (width / 2) - 1);
+        verts.push((y) /(height / 2) - .98);
+        verts.push(0);
+        verts.push((x)/  (width / 2) - 1.02);
+        verts.push((y) /(height / 2) - .98);
+        verts.push(0);
       }
     }
   }
   return verts;
+}
+
+function colorsGen(verts) {
+  var turn = false;
+  var green=0;
+  var colors = new Array(0);
+
+  for(var x = 0; x<verts.length; x++){
+    colors.push(Math.random());
+    colors.push(green);
+    if(turn){
+      green+=0.01;
+      if(green>=1){
+        turn=false;
+      }
+    }
+    else {
+      green-=0.01;
+      if(green<=0){
+        turn=true;
+      }
+    }
+    colors.push(0);
+  }
+  return colors;
+}
+
+function indicesGen(verts) {
+  var inds = new Array(0);
+  console.log(verts.length);
+  for(var x = 0; x<verts.length/12; x++){
+    inds.push(x*4+3);
+    inds.push(x*4+2);
+    inds.push(x*4+1);
+    inds.push(x*4+3);
+    inds.push(x*4+1);
+    inds.push(x*4);
+  }
+  return inds;
 }
 function draw(){
   /* Step1: Prepare the canvas and get WebGL context */
@@ -213,18 +256,36 @@ function draw(){
   /* Step2: Define the geometry and store it in buffer objects */
   var vertices = vertsGen();
   // Create a new buffer object
-  var vertex_buffer = gl.createBuffer();
-  // Bind an empty array buffer to it
-  gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
-  // Pass the vertices data to the buffer
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-  // Unbind the buffer
-  gl.bindBuffer(gl.ARRAY_BUFFER, null);
-  /* Step3: Create and compile Shader programs */
+
+   var colors = colorsGen(vertices);
+   console.log(colors);
+   var indices = indicesGen(vertices);
+   console.log(indices);
+   // Create an empty buffer object and store vertex data
+   var vertex_buffer = gl.createBuffer();
+   gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+   gl.bindBuffer(gl.ARRAY_BUFFER, null);
+
+   // Create an empty buffer object and store Index data
+   var Index_Buffer = gl.createBuffer();
+   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Index_Buffer);
+   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+
+   // Create an empty buffer object and store color data
+   var color_buffer = gl.createBuffer ();
+   gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
+   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+
   // Vertex shader source code
-  var vertCode =
-  'attribute vec2 coordinates;' +
-  'void main(void) {' + ' gl_Position = vec4(coordinates,0.0, 1.0);' + '}';
+  var vertCode = 'attribute vec3 coordinates;'+
+     'attribute vec3 color;'+
+     'varying vec3 vColor;'+
+     'void main(void) {' +
+        ' gl_Position = vec4(coordinates, 1.0);' +
+        'vColor = color;'+
+     '}';
   //Create a vertex shader object
   var vertShader = gl.createShader(gl.VERTEX_SHADER);
   //Attach vertex shader source code
@@ -232,8 +293,13 @@ function draw(){
   //Compile the vertex shader
   gl.compileShader(vertShader);
   //Fragment shader source code
-  var fragCode = 'void main(void) {' + 'gl_FragColor = vec4(0.0, 1.0, 0.0, 0.1);' + '}';
-  // Create fragment shader object
+  // fragment shader source code
+  var fragCode = 'precision mediump float;'+
+     'varying vec3 vColor;'+
+     'void main(void) {'+
+        'gl_FragColor = vec4(vColor, 1.);'+
+     '}';
+       // Create fragment shader object
   var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
   // Attach fragment shader source code
   gl.shaderSource(fragShader, fragCode);
@@ -252,12 +318,25 @@ function draw(){
   /* Step 4: Associate the shader programs to buffer objects */
   //Bind vertex buffer object
   gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+  // Bind index buffer object
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Index_Buffer);
   //Get the attribute location
   var coord = gl.getAttribLocation(shaderProgram, "coordinates");
   //point an attribute to the currently bound VBO
-  gl.vertexAttribPointer(coord, 2, gl.FLOAT, false, 0, 0);
+  gl.vertexAttribPointer(coord, 3, gl.FLOAT, false, 0, 0);
   //Enable the attribute
   gl.enableVertexAttribArray(coord);
+  // bind the color buffer
+  gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
+
+  // get the attribute location
+  var color = gl.getAttribLocation(shaderProgram, "color");
+
+  // point attribute to the volor buffer object
+  gl.vertexAttribPointer(color, 3, gl.FLOAT, false,0,0) ;
+
+  // enable the color attribute
+  gl.enableVertexAttribArray(color);
   /* Step5: Drawing the required object (triangle) */
   // Clear the canvas
   gl.clearColor(0, 0.5, 0.5, 0.6);
@@ -268,7 +347,7 @@ function draw(){
   // Set the view port
   gl.viewport(0,0,canvas.width,canvas.height);
   // Draw the triangle
-  gl.drawArrays(gl.LINES, 0, vertices.length/2);
+  gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT,0);
 }
 
 draw();
