@@ -64,29 +64,31 @@ export default class TwoDTreeCanvas extends React.Component {
           </div>
           <div className="panel-footer">
             <div className="row">
-              <div className="col-md-12">
+              <div className="col-md-2">
                 <div className="btn-group panel-footer-btn" role="group">
                   <button type="button" className="btn btn-default refresh" onClick={(e) => this.handleRefresh(e)}>
                     Refresh
                   </button>
                 </div>
+                <p>Count: {count}</p>
+                </div>
+                <div className="col-md-10">
                 <div className="btn-group panel-footer-btn" role="group">
-                  Width:
+                  Width(18-150):
                   <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpWidth(e)} />
                 </div>
                 <div className="btn-group panel-footer-btn" role="group">
-                  Height:
+                  Height(18-150):
                   <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpHeight(e)} />
                 </div>
                 <div className="btn-group panel-footer-btn" role="group">
-                  Branch Length:
+                  Length(3-100):
                   <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpBranchLen(e)} />
                 </div>
                 <div className="btn-group panel-footer-btn" role="group">
-                  Random func:
+                  Randomness(0-1):
                   <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpRandFunc(e)} />
                 </div>
-                <p>Count: {count}</p>
               </div>
             </div>
           </div>

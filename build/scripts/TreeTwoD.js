@@ -167,125 +167,130 @@ function treeGen(width, height, branch_len, rand_func){
     return 3;
     return dirr-1;
   }
-  return tree();
+  function getRoots() {
+    return roots;
+  }
+  function getGrid() {
+    return grid;
+  }
+  tree();
+  return [grid, roots];
 }
 
 function getSyncScriptParams() {
-         var scripts = document.getElementsByTagName('script');
-         var lastScript = scripts[scripts.length-1];
-         var scriptName = lastScript;
-         return {
-             width : scriptName.getAttribute('width'),
-             height : scriptName.getAttribute('height'),
-             branch_len : scriptName.getAttribute('branch_len'),
-             rand_func : scriptName.getAttribute('rand_func')
-         };
- }
+  var scripts = document.getElementsByTagName('script');
+  var lastScript = scripts[scripts.length-1];
+  var scriptName = lastScript;
+  return {
+    width : scriptName.getAttribute('width'),
+    height : scriptName.getAttribute('height'),
+    branch_len : scriptName.getAttribute('branch_len'),
+    rand_func : scriptName.getAttribute('rand_func')
+  };
+}
 
-function vertsGen(){
+function drawParamsGen() {
   var params = getSyncScriptParams();
   width = parseInt(params.width);
   height = parseInt(params.height);
   branch_len = parseInt(params.branch_len);
   rand_func = parseInt(params.rand_func);
   var verts = new Array(0);
-  var grid = treeGen(width, height, branch_len, rand_func);
-  for(var x = 0; x<grid.length; x++){
-    for(var y = 0; y<grid[0].length; y++){
-      if(grid[x][y]){
-        verts.push(x/  (width / 2) - 1);
-        verts.push(y /(height / 2) - 1);
-        verts.push(0);
-        verts.push((x)/  (width / 2) - 1.02);
-        verts.push((y) /(height / 2) - 1);
-        verts.push(0);
-        verts.push((x)/  (width / 2) - 1);
-        verts.push((y) /(height / 2) - .98);
-        verts.push(0);
-        verts.push((x)/  (width / 2) - 1.02);
-        verts.push((y) /(height / 2) - .98);
-        verts.push(0);
-      }
-    }
-  }
-  return verts;
-}
-
-function colorsGen(verts) {
-  var turn = false;
-  var green=0;
   var colors = new Array(0);
-
-  for(var x = 0; x<verts.length; x++){
-    colors.push(Math.random());
-    colors.push(green);
-    if(turn){
-      green+=0.01;
-      if(green>=1){
-        turn=false;
-      }
-    }
-    else {
-      green-=0.01;
-      if(green<=0){
-        turn=true;
-      }
-    }
-    colors.push(0);
-  }
-  return colors;
-}
-
-function indicesGen(verts) {
   var inds = new Array(0);
-  console.log(verts.length);
-  for(var x = 0; x<verts.length/12; x++){
-    inds.push(x*4+3);
-    inds.push(x*4+2);
-    inds.push(x*4+1);
-    inds.push(x*4+3);
-    inds.push(x*4+1);
-    inds.push(x*4);
+  var roots = treeGen(width, height, branch_len, rand_func);
+  roots = roots[1];
+  var inds_count=0;
+  var red=0;
+  var blue=0;
+  var rb_incr=(1/roots[0].length)*2;
+  for(var i = 0; i<roots[0].length; i++){
+    var x = roots[0][i][0];
+    var y = roots[0][i][1];
+    var green =0;
+    var green_incr= 1/roots[1][i].length;
+    if(green_incr>.05){
+      green_incr=.05;
+    }
+    if(red<1){
+      red+=rb_incr;
+    }
+    else {blue+=rb_incr;}
+    push();
+    for(var j = 0; j<roots[1][i].length; j++){
+      var dirr = roots[1][i][j];
+      if(dirr==0) {y-=1;}
+      if(dirr==1) {x+=1;}
+      if(dirr==2) {y+=1;}
+      if(dirr==3) {x-=1;}
+      push();
+    }
   }
-  return inds;
+  function push(){
+    verts.push((x)/  (width / 2) - 1);
+    verts.push((y) /(height / 2) - 1);
+    verts.push(0);
+    verts.push((x+1)/  (width / 2) - 1);
+    verts.push((y) /(height / 2) - 1);
+    verts.push(0);
+    verts.push((x)/  (width / 2) - 1);
+    verts.push((y+1) /(height / 2) - 1);
+    verts.push(0);
+    verts.push((x+1)/  (width / 2) - 1);
+    verts.push((y+1) /(height / 2) - 1);
+    verts.push(0);
+    for(var k = 0; k<4; k++){
+      colors.push(red);
+      colors.push(green);
+      colors.push(blue);
+    }
+    green+=green_incr;
+    inds.push(inds_count*4);
+    inds.push(inds_count*4+1);
+    inds.push(inds_count*4+2);
+    inds.push(inds_count*4+3);
+    inds.push(inds_count*4+2);
+    inds.push(inds_count*4+1);
+    inds_count+=1;
+  }
+  return [verts, colors, inds];
 }
+
 function draw(){
   /* Step1: Prepare the canvas and get WebGL context */
   var canvas = document.getElementById('my_Canvas');
   var gl = canvas.getContext('experimental-webgl');
   /* Step2: Define the geometry and store it in buffer objects */
-  var vertices = vertsGen();
+  var params = drawParamsGen();
+  var vertices = params[0];
   // Create a new buffer object
+  var colors = params[1];
+  var indices = params[2];
+  // Create an empty buffer object and store vertex data
+  var vertex_buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ARRAY_BUFFER, null);
 
-   var colors = colorsGen(vertices);
-   console.log(colors);
-   var indices = indicesGen(vertices);
-   console.log(indices);
-   // Create an empty buffer object and store vertex data
-   var vertex_buffer = gl.createBuffer();
-   gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
-   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-   gl.bindBuffer(gl.ARRAY_BUFFER, null);
+  // Create an empty buffer object and store Index data
+  var Index_Buffer = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Index_Buffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
 
-   // Create an empty buffer object and store Index data
-   var Index_Buffer = gl.createBuffer();
-   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, Index_Buffer);
-   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
-   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
-
-   // Create an empty buffer object and store color data
-   var color_buffer = gl.createBuffer ();
-   gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
-   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+  // Create an empty buffer object and store color data
+  var color_buffer = gl.createBuffer ();
+  gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
 
   // Vertex shader source code
   var vertCode = 'attribute vec3 coordinates;'+
-     'attribute vec3 color;'+
-     'varying vec3 vColor;'+
-     'void main(void) {' +
-        ' gl_Position = vec4(coordinates, 1.0);' +
-        'vColor = color;'+
-     '}';
+  'attribute vec3 color;'+
+  'varying vec3 vColor;'+
+  'void main(void) {' +
+  ' gl_Position = vec4(coordinates, 1.0);' +
+  'vColor = color;'+
+  '}';
   //Create a vertex shader object
   var vertShader = gl.createShader(gl.VERTEX_SHADER);
   //Attach vertex shader source code
@@ -295,11 +300,11 @@ function draw(){
   //Fragment shader source code
   // fragment shader source code
   var fragCode = 'precision mediump float;'+
-     'varying vec3 vColor;'+
-     'void main(void) {'+
-        'gl_FragColor = vec4(vColor, 1.);'+
-     '}';
-       // Create fragment shader object
+  'varying vec3 vColor;'+
+  'void main(void) {'+
+  'gl_FragColor = vec4(vColor, 1.);'+
+  '}';
+  // Create fragment shader object
   var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
   // Attach fragment shader source code
   gl.shaderSource(fragShader, fragCode);

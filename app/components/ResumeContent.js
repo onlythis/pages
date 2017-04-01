@@ -104,28 +104,27 @@ export default class ResumeContent extends React.Component {
             </div>
           </div>
         </div>
-
         <div className="row">
-          <div className="row">
-            <div className="col-md-6">
-              <div className="panel panel-default" id="work-panel">
-                <p className="panel-header">Artificial Intelligence</p>
-                <hr />
-                <p className="panel-content work-content">Constructed database of stock information with <b>SQL</b>, <b>Python</b>. Used <b>scikit-learn</b> and other python packages to
-                  classify data, and predict changes in price. Gathered features (price, volume, ebitda, moving average, etc) from each Fortune 500 company. Used
-                  sqlite3 to store data in a db file. Trained and predicted with neurolab’s neural network, scikit-learn’s naive bayes and support vector machine.   </p>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="panel panel-default" id="work-panel">
-                <p className="panel-header">Human Computer Interaction</p>
-                <hr />
-                <p className="panel-content work-content">Developed wireframe with <b>HTML/CSS</b> for “Snap n’ Snack” a cooking/recipe website optimizing user experience by
-                  user testing and feedback to generate new prototypes. Implemented <b>Norman principles</b>: minimize gulf of evaluation (state of a system),
-                  execution (intentions vs what system allows), feedback, visibility, consistency, etc.     </p>
-              </div>
+          <div className="col-md-6">
+            <div className="panel panel-default" id="work-panel">
+              <p className="panel-header">Artificial Intelligence</p>
+              <hr />
+              <p className="panel-content work-content">Constructed database of stock information with <b>SQL</b>, <b>Python</b>. Used <b>scikit-learn</b> and other python packages to
+                classify data, and predict changes in price. Gathered features (price, volume, ebitda, moving average, etc) from each Fortune 500 company. Used
+                sqlite3 to store data in a db file. Trained and predicted with neurolab’s neural network, scikit-learn’s naive bayes and support vector machine.   </p>
             </div>
           </div>
+          <div className="col-md-6">
+            <div className="panel panel-default" id="work-panel">
+              <p className="panel-header">Human Computer Interaction</p>
+              <hr />
+              <p className="panel-content work-content">Developed wireframe with <b>HTML/CSS</b> for “Snap n’ Snack” a cooking/recipe website optimizing user experience by
+                user testing and feedback to generate new prototypes. Implemented <b>Norman principles</b>: minimize gulf of evaluation (state of a system),
+                execution (intentions vs what system allows), feedback, visibility, consistency, etc.     </p>
+            </div>
+          </div>
+        </div>
+        <div className="row">
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Computer Graphics</p>
@@ -150,7 +149,7 @@ export default class ResumeContent extends React.Component {
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Computer Networks</p>
               <hr />
-              <p className="panel-content work-content">Studied <i>Computer Networking: A Top-Down Approach</i> exploring <b>TCP/IP</b>, <b>HTTP</b>, routing algorithms to understand 
+              <p className="panel-content work-content">Studied <i>Computer Networking: A Top-Down Approach</i> exploring <b>TCP/IP</b>, <b>HTTP</b>, routing algorithms to understand
                 how devices are connected. Used Wireshark to analyze network packets. Other material discussed: Types of packet delay/lost, network security,
                 SMTP, DNS, multiplexing, UDP, reliable data transfer, router architecture, and subnetting.</p>
             </div>
