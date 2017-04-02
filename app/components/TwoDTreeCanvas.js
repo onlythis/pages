@@ -5,9 +5,9 @@ export default class TwoDTreeCanvas extends React.Component {
     super(props);
     this.state = {
       count: 0,
-      widthValue: 64,
-      heightValue: 64,
-      BranchLen: 16,
+      widthValue: 128,
+      heightValue: 128,
+      BranchLen: 64,
       RandFunc: 1
     };
     this.refresh();
@@ -82,7 +82,7 @@ export default class TwoDTreeCanvas extends React.Component {
                   <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpHeight(e)} />
                 </div>
                 <div className="btn-group panel-footer-btn" role="group">
-                  Length(3-100):
+                  Length(3-300):
                   <input type="text" className="panel-input"  onKeyUp={(e) => this.handleKeyUpBranchLen(e)} />
                 </div>
                 <div className="btn-group panel-footer-btn" role="group">
