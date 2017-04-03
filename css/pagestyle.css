@@ -110,32 +110,6 @@ div.panel-footer.btn-group {
   padding-left: 8px;
 }
 
-a.dropdown-toggle {
-  color: white;
-  font-weight: normal !important;
-}
-a.dropdown-toggle:hover {
-  color: #22345c;
-  background-color: transparent !important;
-}
-
-.dropdown-menu .sub-menu {
-    left: 100%;
-    top: 0;
-    visibility: hidden;
-}
-
-.dropdown-menu li:hover .sub-menu {
-    visibility: visible;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-.nav-pills .dropdown-menu {
-    margin-top: 0;
-}
-
 .navbar button {
   background-color: transparent;
   border: none;
@@ -185,107 +159,69 @@ a.dropdown-toggle:hover {
   box-shadow: none;
 }
 
-.snacknav-buttons {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  }
+a.dropdown-toggle {
+  color: white;
+  font-weight: normal !important;
+}
+a.dropdown-toggle:hover {
+  color: #22345c;
+  background-color: transparent !important;
+}
 
-  .slideshow-container {
-    height: 400px;
-    background-color: yellow;
-  }
-
-  .mySlides {display:none}
-
-  /* Slideshow container */
-  .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-  }
-
-  /* Next & previous buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s slide;
-    border-radius: 0 3px 3px 0;
-  }
-
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-
-  /* Caption text */
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
+.dropdown-menu .sub-menu {
+    left: 100%;
     top: 0;
+    visibility: hidden;
+}
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.nav-pills .dropdown-menu {
+    margin-top: 0;
+}
+
+#snack-dropdown {
+  background-color: rgba(122, 130, 136, 0.6) !important;
+  margin-top: -1px;
+  visibility: visible !important;
+  margin-left: -20px;
+}
+#snack-dropdown a:hover {
+  background-color: rgba(0,0,0,0) !important;
+  color: white !important;
+}
+#snack-dropdown li {
+  padding: 5px;
+}
+#snack-dropdown li a{
+  padding: 0px;
+  text-align: center;
+}
+
+.snacknav-menu {
+  position: absolute;
+  left: 50%;
+    transform: translatex(-50%);
   }
 
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor:pointer;
-    height: 13px;
-    width: 13px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+  ul.snacknav-menu a {
+    color: red !important;
   }
 
-  .active, .dot:hover {
-    background-color: #717171;
-  }
+ul.snacknav-menu > li:hover {
+  background-color: rgba(122, 130, 136, 0.6);
+}
 
-  /* Fading animation */
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
+.example-appear {
+   opacity: 0.01;
+}
 
-  @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .prev, .next,.text {font-size: 11px}
-  }
+.example-appear.example-appear-active {
+   opacity: 1;
+   transition: opacity 500ms ease-in;
+}
