@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server --content-base build",
-    "deploy" : "npm run build&&gh-pages -d build"
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "devDependencies": {
     "babel": "^6.3.26",
@@ -25,5 +25,9 @@
     "react-router": "^1.0.3",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "react-addons-css-transition-group": "15.4.2",
+    "react-motion": "^0.4.7"
   }
 }

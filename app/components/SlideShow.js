@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {Motion, spring} from 'react-motion';
 export default class SlideShow extends React.Component {
   constructor(props) {
     super(props);
@@ -13,11 +14,22 @@ export default class SlideShow extends React.Component {
     document.body.appendChild(script);
   }
   render() {
+    var ReactCSStransitionGroup = require('react-addons-css-transition-group');
     return (
       <div>
+        <img src="../img/onion-soup.JPG" />
+          <ReactCSSTransitionGroup transitionName = "example"
+                 transitionAppear = {true} transitionAppearTimeout = {500}
+                 transitionEnter = {false} transitionLeave = {false}>
+
+                 <h1>My Element...</h1>
+              </ReactCSSTransitionGroup>
+              <Motion defaultStyle={{x: 0}} style={{x: spring(100)}}>
+  {value => <div>{value.x}</div>}
+</Motion>
         <div className="slideshow-container">
 
-        <div className="mySlides fade">
+        <div className="mySlides">
           <div className="numbertext">1 / 3</div>
           <img src="../img/onion-soup.JPG" />
           <div className="text">Caption Text</div>
@@ -41,7 +53,7 @@ export default class SlideShow extends React.Component {
         </div>
         <br />
 
-        <div >
+        <div className="center">
           <span className="dot" onclick="currentSlide(1)"></span>
           <span className="dot" onclick="currentSlide(2)"></span>
           <span className="dot" onclick="currentSlide(3)"></span>

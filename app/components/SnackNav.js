@@ -15,12 +15,25 @@ export default class SnackNav extends React.Component {
             </button></Link>
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <div className="snacknav-buttons">
-            <div className="btn-group" role="group">
-              <Link to="#"><button type="button" className="btn btn-default navbar-btn">
+
+          <div className="snacknav">
+            <ul className="nav navbar-nav snacknav-menu">
+              <li className="snacknav-menu-item"><Link to="#">
+                Recipes
+              </Link></li>
+            <li className="snacknav-menu-item dropdown"><a href="#">
                 Snap & Snack
-              </button></Link>
-            </div>
+              </a>
+                <ul className="dropdown-menu" id="snack-dropdown">
+                  <li><Link to="snapnsnack">Separated link</Link></li>
+                  <li><Link to="snapnsnack">Separated link</Link></li>
+                  <li><Link to="snapnsnack">Separated link</Link></li>
+                </ul>
+              </li>
+              <li className="snacknav-menu-item"><Link to="#">
+                Recipes
+              </Link></li>
+              </ul>
           </div>
         </div>
         </div>
