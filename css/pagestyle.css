@@ -247,13 +247,13 @@ ul.snacknav-menu > li:hover {
   background-image: url('../img/gray_wolf.JPG');
 }
 .slide-circle-first {
-  background-image: url('../img/onion-soup.JPG');
+  background-image: url('../img/onion-soup.jpg');
 }
 .slide-circle-second {
-  background-image: url('../img/garlic-bread.JPG');
+  background-image: url('../img/garlic-bread.jpg');
 }
 .slide-circle-third {
-  background-image: url('../img/chicken-pot-pie.JPG');
+  background-image: url('../img/chicken-pot-pie.jpg');
 }
 .slide-next, .slide-prev {
   cursor: pointer;
