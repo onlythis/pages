@@ -7,6 +7,7 @@ import TwoDTreeCanvas from './components/TwoDTreeCanvas';
 import ResumeContent from './components/ResumeContent';
 import SnackNav from './components/SnackNav';
 import SlideShow from './components/SlideShow';
+import Demo from './components/Demo';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 class App extends React.Component {
@@ -25,6 +26,16 @@ class SnapnSnack extends React.Component {
       <div>
         <SnackNav/>
         <SlideShow/>
+      </div>
+    )
+  }
+}
+class Recipes extends React.Component {
+  render () {
+    return (
+      <div>
+        <SnackNav/>
+        <Demo/>
       </div>
     )
   }
@@ -85,6 +96,7 @@ ReactDOM.render((
       <IndexRoute component={Reactpage} />
       <Route path="resume" component={Resume} />
       <Route path="snapnsnack" component={SnapnSnack}/>
+      <Route path ="snapnsnack/recipes" component={Recipes}/>
     </Route>
   </Router>
 ),document.getElementById('react-div'));

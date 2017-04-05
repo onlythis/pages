@@ -79,9 +79,6 @@ a, a:visited {
   font-weight: bold;
 }
 
-.green {
-  color: green;
-}
 div.panel, div.panel-footer {
   background: rgba(122, 130, 136, 0.6)!important;
   margin-top: 20px;
@@ -117,7 +114,7 @@ div.panel-footer.btn-group {
 }
 
 /* Make buttons slightly darker when the user hovers over it, like Facebook
-  does. */
+does. */
 .navbar button:hover {
   background-color: transparent;
   color: #22345c;
@@ -136,7 +133,7 @@ div.panel-footer.btn-group {
 }
 
 /* Search button style -- overrides the above two rules for the search
-   button */
+button */
 .navbar form button,
 .navbar form button:hover,
 .navbar form button:focus,
@@ -150,7 +147,7 @@ div.panel-footer.btn-group {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   /* Apply a light-grey border color. You can specify colors as names, rgb
-     triplets, or hex numbers. */
+  triplets, or hex numbers. */
   border-top: 1px solid rgb(204, 204, 204);
   border-bottom: 1px solid rgb(204, 204, 204);
   border-right: 1px solid rgb(204, 204, 204);
@@ -169,20 +166,20 @@ a.dropdown-toggle:hover {
 }
 
 .dropdown-menu .sub-menu {
-    left: 100%;
-    top: 0;
-    visibility: hidden;
+  left: 100%;
+  top: 0;
+  visibility: hidden;
 }
 
 .dropdown-menu li:hover .sub-menu {
-    visibility: visible;
+  visibility: visible;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 .nav-pills .dropdown-menu {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 #snack-dropdown {
@@ -206,22 +203,70 @@ a.dropdown-toggle:hover {
 .snacknav-menu {
   position: absolute;
   left: 50%;
-    transform: translatex(-50%);
-  }
+  transform: translatex(-50%);
+}
 
-  ul.snacknav-menu a {
-    color: red !important;
-  }
+ul.snacknav-menu a {
+  color: red !important;
+}
 
 ul.snacknav-menu > li:hover {
   background-color: rgba(122, 130, 136, 0.6);
 }
 
-.example-appear {
-   opacity: 0.01;
+.slideshow-container {
+  height: 300px;
+  margin-top: -10px;
 }
 
-.example-appear.example-appear-active {
-   opacity: 1;
-   transition: opacity 500ms ease-in;
+.demo1-ball {
+  border-radius: 150px;
+  background-color: white;
+  width: 300px;
+  height: 300px;
+  border: 3px solid white;
+  position: absolute;
+  background-size: 300px;
+}
+.ball-0 {
+  background-image: url('../img/gray_wolf.JPG');
+}
+.ball-1 {
+  background-image: url('../img/gray_wolf.JPG');
+}
+.ball-2 {
+  background-image: url('../img/gray_wolf.JPG');
+}
+.ball-3 {
+  background-image: url('../img/gray_wolf.JPG');
+}
+.ball-4 {
+  background-image: url('../img/gray_wolf.JPG');
+}
+.ball-5 {
+  background-image: url('../img/gray_wolf.JPG');
+}
+.slide-circle {
+  background-image: url('../img/gray_wolf.JPG');
+}
+.slide-next, .slide-prev, .next, .prev {
+  cursor: pointer;
+  position: absolute;
+  top: 20%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: transparent;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(1,1,1,0.8);
+}
+.next, .slide-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }

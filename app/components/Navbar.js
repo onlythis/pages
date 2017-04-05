@@ -37,7 +37,7 @@ export default class Navbar extends React.Component {
                         </ul>
                       </li>
                       <li className="divider"></li>
-                      <li><Link to="snapnsnack">Separated link</Link></li>
+                      <li><Link to="snapnsnack">Snap & Snack</Link></li>
                     </ul>
                   </li>
                 </ul>

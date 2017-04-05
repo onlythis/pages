@@ -18,16 +18,16 @@ export default class SnackNav extends React.Component {
 
           <div className="snacknav">
             <ul className="nav navbar-nav snacknav-menu">
-              <li className="snacknav-menu-item"><Link to="#">
-                Recipes
+              <li className="snacknav-menu-item"><Link to="snapnsnack/recipes">
+                Demo
               </Link></li>
-            <li className="snacknav-menu-item dropdown"><a href="#">
+            <li className="snacknav-menu-item dropdown"><Link to="snapnsnack">
                 Snap & Snack
-              </a>
+            </Link>
                 <ul className="dropdown-menu" id="snack-dropdown">
-                  <li><Link to="snapnsnack">Separated link</Link></li>
-                  <li><Link to="snapnsnack">Separated link</Link></li>
-                  <li><Link to="snapnsnack">Separated link</Link></li>
+                  <li><Link to="snapnsnack">menu item</Link></li>
+                  <li><Link to="snapnsnack">stuff</Link></li>
+                  <li><Link to="snapnsnack">things</Link></li>
                 </ul>
               </li>
               <li className="snacknav-menu-item"><Link to="#">
