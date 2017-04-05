@@ -21,18 +21,23 @@ export default class SlideShow extends React.Component {
     return (
       <div>
         <div className="slideshow-container">
-          <Motion style={{x: spring(this.state.imgindex*150, { stiffness: 130, damping: 30 })}}>
-            {({x}) => <div style={{  left: x, position: 'absolute'}} className="demo1-ball slide-circle">
-            <div style={{  left: x/2, position: 'absolute'}} className="demo1-ball slide-circle"></div>
-          </div>}
+          <Motion style={{x: spring(this.state.imgindex, { stiffness: 130, damping: 30 })}}>
+            {({x}) => <div>
+                      <div style={{  left: x*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-first"> </div>
+                      <div style={{  left: (x-1)*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-second"></div>
+                      <div style={{  left: (x-2)*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-third"> </div>
+                      </div>}
         </Motion>
-        <button type="button" className="btn btn-default slide-prev" onClick={(e) => this.handleNext(e,-1)}>
+        <a className="btn btn-default slide-prev" onClick={(e) => this.handleNext(e,-1)}>
           &#10094;
-        </button>
-        <button type="button" className="btn btn-default slide-next" onClick={(e) => this.handleNext(e, 1)}>
+        </a>
+        <a className="btn btn-default slide-next" onClick={(e) => this.handleNext(e, 1)}>
           &#10095;
-        </button>
+        </a>
       </div>
+      <div className="slideshow-cover" style={{width:window.innerWidth/2-150}}></div>
+      <div className="slideshow-cover" style={{width:window.innerWidth/2-150, right: 0}}></div>
+      <div className="slideshow-pic-back" style={{left: window.innerWidth/2-150}}></div>
     </div>
   )
 }
