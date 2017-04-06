@@ -21,7 +21,7 @@ export default class SlideShow extends React.Component {
     return (
       <div>
         <div className="slideshow-container">
-          <Motion style={{x: spring(this.state.imgindex, { stiffness: 130, damping: 30 })}}>
+          <Motion style={{x: spring(this.state.imgindex, { stiffness: 230, damping: 30 })}}>
             {({x}) => <div>
                       <div style={{  left: x*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-first"> </div>
                       <div style={{  left: (x-1)*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-second"></div>

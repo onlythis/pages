@@ -292,3 +292,10 @@ ul.snacknav-menu > li:hover {
   width: 306px;
   z-index: -1;
 }
+
+.recipe-item {
+  color: white;
+  font-size: 24px;
+  margin: 5px;
+  cursor: default;
+}
