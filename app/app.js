@@ -9,6 +9,7 @@ import SnackNav from './components/SnackNav';
 import SlideShow from './components/SlideShow';
 import Demo from './components/Demo';
 import Recipe from './components/Recipe';
+import RecipeLeftSide from './components/RecipeLeftSide';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 class App extends React.Component {
@@ -33,11 +34,25 @@ class SnapnSnack extends React.Component {
 }
 
 class Recipes extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      backgroundColors: ['rgba(80,20,20,20)','rgba(20,80,20,20)', 'rgba(20,20,80,20)'],
+      index: 1
+    };
+  }
+  leftClicked(ind){
+    var index = this.state.index;
+    index=ind;
+    this.setState({index});
+  }
   render () {
+    var backgroundcolor = this.state.backgroundColors[this.state.index];
     return (
       <div>
         <SnackNav/>
-        <Recipe/>
+        <RecipeLeftSide onSelect={(e) => this.leftClicked(e)}/>
+        <Recipe backgroundcolor={backgroundcolor}/>
       </div>
     )
   }
@@ -56,11 +71,11 @@ class Bubbles extends React.Component {
 
 class Reactpage extends React.Component {
   constructor(props) {
-  super(props);
-  this.state = {
-    searched: "Daniel Chu Snyder"
-  };
-}
+    super(props);
+    this.state = {
+      searched: "Daniel Chu Snyder"
+    };
+  }
   handleSearch(e) {
     var searched=this.state.searched;
     var updated=e;
@@ -80,11 +95,11 @@ class Reactpage extends React.Component {
 
 class Resume extends React.Component {
   constructor(props) {
-  super(props);
-  this.state = {
-    searched: "Daniel Chu Snyder"
-  };
-}
+    super(props);
+    this.state = {
+      searched: "Daniel Chu Snyder"
+    };
+  }
   handleSearch(e) {
     var searched=this.state.searched;
     var updated=e;

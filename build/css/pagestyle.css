@@ -293,9 +293,52 @@ ul.snacknav-menu > li:hover {
   z-index: -1;
 }
 
+.recipe-list {
+  background-color: rgba(122, 130, 136, 0.6);
+  margin-top: -10px;
+}
+
 .recipe-item {
   color: white;
   font-size: 24px;
   margin: 5px;
   cursor: default;
+}
+
+.recipes-list-container > div {
+  margin: 20px !important;
+}
+
+p.ingredient {
+  color: white;
+  font-size: 20px;
+}
+p.quantity {
+  color: red;
+  font-size: 16px;
+}
+div.ingredient-row {
+  border-bottom: 3px solid red;
+}
+.recipe-leftside {
+  margin-top: -10px;
+  padding: 0 !important;
+  left: 0;
+}
+ul.recipe-sidebar-list-container {
+  list-style-type: none;
+  padding: 0 !important;
+}
+ul.recipe-sidebar-list-container > div {
+  margin: 0;
+}
+li.recipe-sidebar-p {
+  font-size: 30px;
+  color: white;
+  margin: auto;
+  text-align: center;
+  cursor: default;
+}
+li.not-active:hover {
+  background-color: rgba(122, 130, 136, 0.6) !important;
 }
