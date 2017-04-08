@@ -186,7 +186,7 @@ a.dropdown-toggle:hover {
   background-color: rgba(122, 130, 136, 0.6) !important;
   margin-top: -1px;
   visibility: visible !important;
-  margin-left: -20px;
+  margin-left: -18px;
 }
 #snack-dropdown a:hover {
   background-color: rgba(0,0,0,0) !important;
@@ -293,33 +293,6 @@ ul.snacknav-menu > li:hover {
   z-index: -1;
 }
 
-.recipe-list {
-  background-color: rgba(122, 130, 136, 0.6);
-  margin-top: -10px;
-}
-
-.recipe-item {
-  color: white;
-  font-size: 24px;
-  margin: 5px;
-  cursor: default;
-}
-
-.recipes-list-container > div {
-  margin: 20px !important;
-}
-
-p.ingredient {
-  color: white;
-  font-size: 20px;
-}
-p.quantity {
-  color: red;
-  font-size: 16px;
-}
-div.ingredient-row {
-  border-bottom: 3px solid red;
-}
 .recipe-leftside {
   margin-top: -10px;
   padding: 0 !important;
@@ -341,4 +314,62 @@ li.recipe-sidebar-p {
 }
 li.not-active:hover {
   background-color: rgba(122, 130, 136, 0.6) !important;
+}
+
+hr.interact-hr {
+  margin-bottom: -1px;
+  margin-top: 0px;
+  width: 98%;
+}
+
+div.interact-header-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0;
+  height: 100%;
+}
+
+p.interact-recipes-panel-header {
+  margin: auto;
+  margin-left: 15px;
+  text-align: left;
+  color: #99ff99;
+  font-size: 20px;
+}
+
+div.interact-right-buttons {
+  right: 20px;
+  width: 50%;
+  position: absolute;
+}
+
+span.glyphicon {
+  margin-top: 3px;
+}
+span.glyphicon-search {
+  margin-top: 2px;
+}
+button.interact-but {
+  padding-bottom: 5px;
+}
+
+.recipe-list {
+  margin-top: -10px;
+  padding: 0;
+}
+
+.recipes-list-container > div {
+  margin: 20px !important;
+}
+
+p.ingredient {
+  color: white;
+  font-size: 20px;
+}
+p.quantity {
+  color: red;
+  font-size: 16px;
+}
+div.ingredient-row {
+  border-bottom: 3px solid red;
 }
