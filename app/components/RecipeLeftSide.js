@@ -6,7 +6,7 @@ export default class RecipeLeftSide extends React.Component {
     this.state = {
       menuItems: ["Favorites", "New", "Browse"],
       active: 1,
-      backgroundColors: ['rgba(80,20,20,20)','rgba(20,80,20,20)', 'rgba(20,20,80,20)'],
+      backgroundColors: ["rgba(80,20,20,20)",'rgba(20,80,20,20)', 'rgba(20,20,80,20)'],
     }
   }
 
@@ -20,7 +20,7 @@ export default class RecipeLeftSide extends React.Component {
   render() {
     var menuItems = this.state.menuItems;
     return (
-      <div className = "col-md-3 recipe-leftside">
+      <div className = "col-md-2 recipe-leftside">
         <ul className = "recipe-sidebar-list-container">
           {menuItems.map((item, i) => {
             if(this.state.active == i){
