@@ -37,7 +37,6 @@ class Recipes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      backgroundColors: ['rgba(80,20,20,20)','rgba(20,80,20,20)', 'rgba(20,20,80,20)'],
       index: 1
     };
   }
@@ -47,12 +46,12 @@ class Recipes extends React.Component {
     this.setState({index});
   }
   render () {
-    var backgroundcolor = this.state.backgroundColors[this.state.index];
+    var index = this.state.index;
     return (
       <div>
         <SnackNav/>
         <RecipeLeftSide onSelect={(e) => this.leftClicked(e)}/>
-        <Recipe backgroundcolor={backgroundcolor}/>
+        <Recipe tabindex={index}/>
       </div>
     )
   }

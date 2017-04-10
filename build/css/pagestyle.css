@@ -184,8 +184,6 @@ a.dropdown-toggle:hover {
 
 #snack-dropdown {
   background-color: rgba(122, 130, 136, 0.6) !important;
-  margin-top: -1px;
-  visibility: visible !important;
   margin-left: -18px;
 }
 #snack-dropdown a:hover {
@@ -330,11 +328,11 @@ div.interact-header-container {
 }
 
 p.interact-recipes-panel-header {
-  margin: auto;
-  margin-left: 15px;
   text-align: left;
   color: #99ff99;
   font-size: 20px;
+  margin: 0;
+  margin-top: 3px;
 }
 
 div.interact-right-buttons {
@@ -368,8 +366,22 @@ p.ingredient {
 }
 p.quantity {
   color: red;
-  font-size: 16px;
+  font-size: 14px;
+}
+div.quantity-div {
+  margin-top: 6px;
 }
 div.ingredient-row {
   border-bottom: 3px solid red;
+}
+
+hr.hr-nopad {
+  padding: 0;
+  margin-top: 0;
+}
+
+button.fav-red, button.fav-red:hover, button.fav-red:focus {
+  background-color: red;
+  border-color: red;
+
 }

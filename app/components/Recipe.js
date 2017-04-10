@@ -15,7 +15,9 @@ export default class Recipe extends React.Component {
           ingredients: ["garlic","bread"],
           description: "very good"}
         ],
-      hidden: [1,1,1]
+      backgroundColors: ['rgba(80,20,20,20)','rgba(20,80,20,20)', 'rgba(20,20,80,20)'],
+      hidden: [0,1,1],
+      favs: [1,0,0],
       }
     }
 
@@ -28,8 +30,12 @@ export default class Recipe extends React.Component {
   handleRemove(e, i) {
     e.preventDefault();
     var recipes = this.state.recipes;
+    var hidden = this.state.hidden;
+    var favs = this.state.favs;
+    favs.splice(i,1);
+    hidden.splice(i,1);
     recipes.splice(i, 1);
-    this.setState({recipes});
+    this.setState({recipes, hidden});
   }
   handleExpand(e, i) {
     e.preventDefault();
@@ -37,12 +43,39 @@ export default class Recipe extends React.Component {
     hidden[i] = !hidden[i];
     this.setState({hidden});
   }
-  handleDelete(e) {
+  handleFav(e, i) {
     e.preventDefault();
+    var favs = this.state.favs;
+    favs[i] = !favs[i];
+    this.setState({favs});
   }
   render() {
+    var tabindex = this.props.tabindex;
+    let favsindex = this.state.favs;
+    let favsbuttoncolor = [];
+    favsindex.map((fav) => {
+      if(fav) {
+        favsbuttoncolor.push("btn btn-default interact-but fav-but fav-red");
+      } else {
+        favsbuttoncolor.push("btn btn-default interact-but fav-but");
+      }
+    });
     var recipes = this.state.recipes;
-    var color = this.props.backgroundcolor;
+    var panelhide = [];
+    if(tabindex == 0) {
+      favsindex.map((fav) => {
+        if(fav) {
+          panelhide.push("row panel panel-default");
+        } else {
+          panelhide.push("row panel panel-default hide");
+        }
+      });
+    } else {
+      favsindex.map((fav) => {
+        panelhide.push("row panel panel-default");
+      });
+    }
+    var color = this.state.backgroundColors[tabindex];
     let hidden = this.state.hidden;
     let panelbodyclasses = [];
     let hrclasses = [];
@@ -50,54 +83,60 @@ export default class Recipe extends React.Component {
     hidden.map((hide) => {
       if(hide) {
         panelbodyclasses.push(`panel-body hide`);
-        hrclasses.push("panel-body hide");
+        hrclasses.push("panel-body hr-nopad hide");
         expandglyph.push("glyphicon glyphicon-chevron-up");
       } else {
         panelbodyclasses.push(`panel-body nothide`);
-        hrclasses.push("panel-body nothide");
+        hrclasses.push("panel-body hr-nopad nothide");
         expandglyph.push("glyphicon glyphicon-chevron-down");
       }
-    })
-    let buttonMargin = ((window.innerWidth/12*8-40)/2 - 35*3)/3;
+    });
+
     return (
       <div className = "col-md-8 recipe-list" style={{backgroundColor: `${color}`}}>
         <div className="recipes-list-container">
           {recipes.map((recipe, i) => {
             return (
-              <div key={i} className="row panel panel-default">
+              <div key={i} className={panelhide[i]}>
                 <div className="row interact-header-container">
+                  <div className="col-md-6">
                   <div className="pull-left">
                     <p className="interact-recipes-panel-header">{recipe.contents}</p>
                   </div>
-                  <div className="interact-right-buttons">
-                    <button type="button" className="btn btn-default interact-but expand-but" onClick={(e) => this.handleExpand(e, i)} style={{marginRight: `${buttonMargin}`}}>
+                  </div>
+                    <div className="col-md-2">
+                    <button type="button" className="btn btn-default interact-but expand-but" onClick={(e) => this.handleExpand(e, i)}>
                       <span className={expandglyph[i]}></span>
                     </button>
-                    <button type="button" className="btn btn-default interact-but fav-but" onClick={(e) => this.handleDelete(e)} style={{marginRight: `${buttonMargin}`}}>
+                    </div>
+                    <div className="col-md-2">
+                    <button type="button" className={favsbuttoncolor[i]} onClick={(e) => this.handleFav(e, i)}>
                       <span className="glyphicon glyphicon-heart"></span>
                     </button>
-                    <button type="button" className="btn btn-default interact-but del-but" onClick={(e) => this.handleRemove(e, i)} style={{marginRight: `${buttonMargin}`}}>
+                    </div>
+                    <div className="col-md-2">
+                    <button type="button" className="btn btn-default interact-but del-but" onClick={(e) => this.handleRemove(e, i)}>
                       <span className="glyphicon glyphicon-remove"></span>
                     </button>
                   </div>
                 </div>
                 <hr className={hrclasses[i]}/>
                 <div className={panelbodyclasses[i]}>
-                  <div className="col-md-4">
+                  <div className="col-md-3">
                     {recipe.ingredients.map((ingredient, j) => {
                       return (
                         <div key={j} className="row ingredient-row">
                           <div className="pull-left">
                             <p className="ingredient">{ingredient}</p>
                           </div>
-                          <div className="pull-right">
+                          <div className="pull-right quantity-div">
                             <p className="quantity">4</p>
                           </div>
                         </div>
                       )
                     })}
                   </div>
-                  <div className="col-md-5">
+                  <div className="col-md-6">
                     {recipe.description}
                   </div>
                   <div className="col-md-3">

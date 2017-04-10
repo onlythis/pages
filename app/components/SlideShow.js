@@ -13,19 +13,19 @@ export default class SlideShow extends React.Component {
   handleNext(e, dirr) {
     e.preventDefault();
     let imgindex = this.state.imgindex+dirr;
+    imgindex = imgindex >= 1 ? imgindex <= 3 ? imgindex : 3 : 1;
     this.setState({imgindex});
   }
   render() {
     var ReactCSStransitionGroup = require('react-addons-css-transition-group');
-    var leftpix=this.state.imgindex;
     return (
       <div>
         <div className="slideshow-container">
           <Motion style={{x: spring(this.state.imgindex, { stiffness: 230, damping: 30 })}}>
             {({x}) => <div>
-                      <div style={{  left: x*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-first"> </div>
-                      <div style={{  left: (x-1)*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-second"></div>
-                      <div style={{  left: (x-2)*window.innerWidth/2-150, position: 'absolute'}} className="demo1-ball slide-circle-third"> </div>
+                      <div style={{  left: Math.min(x*window.innerWidth/2-150,window.innerWidth-300), position: 'absolute'}} className="demo1-ball slide-circle-first"> </div>
+                      <div style={{  left: Math.min((x-1)*window.innerWidth/2-150,window.innerWidth-300), position: 'absolute'}} className="demo1-ball slide-circle-second"></div>
+                      <div style={{  left: Math.min((x-2)*window.innerWidth/2-150,window.innerWidth-300), position: 'absolute'}} className="demo1-ball slide-circle-third"> </div>
                       </div>}
         </Motion>
         <a className="btn btn-default slide-prev" onClick={(e) => this.handleNext(e,-1)}>
