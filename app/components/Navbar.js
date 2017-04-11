@@ -26,21 +26,9 @@ export default class Navbar extends React.Component {
                 </button></Link>
               </div>
               <div className="btn-group" role="group">
-                <ul className="nav nav-pills ">
-                  <li className="dropdown">
-                    <a href="#" data-toggle="dropdown" className="dropdown-toggle">Menu</a>
-                    <ul className="dropdown-menu" id="menu1">
-                      <li>
-                        <Link to="resume">2-level Menu <i className="icon-arrow-right"></i></Link>
-                        <ul className="dropdown-menu sub-menu">
-                          <li><a href="#">Action</a></li>
-                        </ul>
-                      </li>
-                      <li className="divider"></li>
-                      <li><Link to="snapnsnack">Snap & Snack</Link></li>
-                    </ul>
-                  </li>
-                </ul>
+                <Link to="snapnsnack"><button type="button" className="btn btn-default navbar-btn">
+                  Snap & Snack
+                </button></Link>
               </div>
             </div>
             <div className="nav navbar-nav navbar-right">

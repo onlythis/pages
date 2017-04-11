@@ -140,7 +140,7 @@ export default class Recipe extends React.Component {
                     {recipe.description}
                   </div>
                   <div className="col-md-3">
-                    Ingredients, quantities, times, portions, pic, description, notes
+                    pic
                   </div>
                 </div>
               </div>
