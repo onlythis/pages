@@ -30,6 +30,11 @@ export default class Navbar extends React.Component {
                   Snap & Snack
                 </button></Link>
               </div>
+              <div className="btn-group" role="group">
+                <a href="https://onlythis.github.io/three3d/"><button type="button" className="btn btn-default navbar-btn">
+                  threeD Maze
+                </button></a>
+              </div>
             </div>
             <div className="nav navbar-nav navbar-right">
               <SearchBar searchHandler={(e) => this.searchHandler(e)}/>
