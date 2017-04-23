@@ -253,6 +253,12 @@ ul.snacknav-menu > li:hover {
 .slide-circle-third {
   background-image: url('../img/chicken-pot-pie.jpg');
 }
+.recipe-img {
+  height:100px;
+  width: 100px;
+  background-size: 100px;
+}
+
 .slide-next, .slide-prev {
   cursor: pointer;
   position: absolute;
