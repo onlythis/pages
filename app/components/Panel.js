@@ -4,8 +4,8 @@ export default class Panel extends React.Component {
   constructor(props) {
   super(props);
   this.state = {
-    value: 0
-  };
+    value: 0,
+    };
 }
 
   handleRefresh(e) {

@@ -139,8 +139,8 @@ export default class Recipe extends React.Component {
                   <div className="col-md-6">
                     {recipe.description}
                   </div>
-                  <div className="col-md-3">
-                    pic
+                  <div className="col-md-3 container">
+                    <div className="recipe-img slide-circle-first"> </div>
                   </div>
                 </div>
               </div>

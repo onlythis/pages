@@ -27,7 +27,10 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "react": "^15.3.2",
     "react-addons-css-transition-group": "15.4.2",
-    "react-motion": "^0.4.7"
+    "react-dom": "^15.3.2",
+    "react-motion": "^0.4.7",
+    "react-native-svg": "^5.1.7"
   }
 }
