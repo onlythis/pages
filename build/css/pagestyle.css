@@ -253,11 +253,7 @@ ul.snacknav-menu > li:hover {
 .slide-circle-third {
   background-image: url('../img/chicken-pot-pie.jpg');
 }
-.recipe-img {
-  height:100px;
-  width: 100px;
-  background-size: 100px;
-}
+
 
 .slide-next, .slide-prev {
   cursor: pointer;
@@ -390,4 +386,34 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   background-color: red;
   border-color: red;
 
+}
+.recipe-img {
+  height:100px;
+  width: 100px;
+  background-size: 100px;
+}
+
+.panel-resizable {
+  resize: vertical;
+  overflow: hidden;
+  height: 150px;
+}
+.scroll-container {
+  height: 150px;
+  overflow: hidden;
+}
+.scrollable {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+.popular-rec {
+  margin: 0;
+}
+.artist-name {
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+  color: white;
 }
