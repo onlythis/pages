@@ -53,6 +53,7 @@ export default class Recipe extends React.Component {
     let panel_h = document.getElementsByClassName('panel-resizable')[0].offsetHeight;
     console.log(panel_h);
   }
+  
   render() {
     var tabindex = this.props.tabindex;
     let favsindex = this.state.favs;

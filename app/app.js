@@ -50,6 +50,7 @@ class Recipes extends React.Component {
     return (
       <div>
         <SnackNav/>
+        <SlideShow/>
         <RecipeLeftSide onSelect={(e) => this.leftClicked(e)}/>
         <Recipe tabindex={index}/>
       </div>

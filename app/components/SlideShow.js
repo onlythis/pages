@@ -23,9 +23,9 @@ export default class SlideShow extends React.Component {
         <div className="slideshow-container">
           <Motion style={{x: spring(this.state.imgindex, { stiffness: 230, damping: 30 })}}>
             {({x}) => <div>
-                      <div style={{  left: Math.min(x*window.innerWidth/2-150,window.innerWidth-300), position: 'absolute'}} className="demo1-ball slide-circle-first"> </div>
-                      <div style={{  left: Math.min((x-1)*window.innerWidth/2-150,window.innerWidth-300), position: 'absolute'}} className="demo1-ball slide-circle-second"></div>
-                      <div style={{  left: Math.min((x-2)*window.innerWidth/2-150,window.innerWidth-300), position: 'absolute'}} className="demo1-ball slide-circle-third"> </div>
+                      <div style={{  left: Math.min(x*window.innerWidth/2-150,window.innerWidth-317), position: 'absolute'}} className="demo1-ball slide-circle-first"> </div>
+                      <div style={{  left: Math.min((x-1)*window.innerWidth/2-150,window.innerWidth-317), position: 'absolute'}} className="demo1-ball slide-circle-second"></div>
+                      <div style={{  left: Math.min((x-2)*window.innerWidth/2-150,window.innerWidth-317), position: 'absolute'}} className="demo1-ball slide-circle-third"> </div>
                       </div>}
         </Motion>
         <a className="btn btn-default slide-prev" onClick={(e) => this.handleNext(e,-1)}>
@@ -36,7 +36,7 @@ export default class SlideShow extends React.Component {
         </a>
       </div>
       <div className="slideshow-cover" style={{width:window.innerWidth/2-150}}></div>
-      <div className="slideshow-cover" style={{width:window.innerWidth/2-150, right: 0}}></div>
+      <div className="slideshow-cover" style={{width:window.innerWidth/2-165, right: 0}}></div>
       <div className="slideshow-pic-back" style={{left: window.innerWidth/2-150}}></div>
     </div>
   )
