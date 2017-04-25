@@ -289,12 +289,12 @@ ul.snacknav-menu > li:hover {
   background-color: white;
   top: 50px;
   height: 306px;
-  width: 306px;
+  width: 321px;
   z-index: -1;
 }
 
 .recipe-leftside {
-  margin-top: -10px;
+  margin-top: 6px;
   padding: 0 !important;
   left: 0;
 }
@@ -354,7 +354,7 @@ button.interact-but {
 }
 
 .recipe-list {
-  margin-top: -10px;
+  margin-top: 6px;
   padding: 0;
 }
 
