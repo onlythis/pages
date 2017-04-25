@@ -399,7 +399,7 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   height: 150px;
 }
 .scroll-container {
-  height: 150px;
+  height: inherit;
   overflow: hidden;
 }
 .scrollable {
