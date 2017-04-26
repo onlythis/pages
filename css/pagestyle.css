@@ -258,10 +258,9 @@ ul.snacknav-menu > li:hover {
 .slide-next, .slide-prev {
   cursor: pointer;
   position: absolute;
-  top: 190px;
+  top: 165px;
   width: auto;
   padding: 16px;
-  margin-top: -22px;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -273,16 +272,19 @@ ul.snacknav-menu > li:hover {
 .slide-next:hover, .slide-prev:hover {
   background: #717171 !important;
 }
-.next, .slide-next {
+.slide-next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-.slideshow-cover {
+.slideshow-cover, .slideshow-cover-right {
   top: 50px;
   height: 306px;
   position: absolute;
   background-color: white;
   z-index: 1;
+}
+.slideshow-cover-right {
+  right: 0;
 }
 .slideshow-pic-back {
   position: absolute;
@@ -294,7 +296,7 @@ ul.snacknav-menu > li:hover {
 }
 
 .recipe-leftside {
-  margin-top: 6px;
+  margin-top: -10px;
   padding: 0 !important;
   left: 0;
 }
@@ -354,7 +356,7 @@ button.interact-but {
 }
 
 .recipe-list {
-  margin-top: 6px;
+  margin-top: -10px;
   padding: 0;
 }
 
@@ -416,4 +418,71 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   font-size: 16px;
   margin: 0;
   color: white;
+}
+
+.fadeshow {
+  margin: 0;
+  position: relative;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+  background-size: 100px;
+  z-index: 3;
+}
+.fade-slide1,.fade-slide2,.fade-slide3,.slide4,.slide5 {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  border-radius: 150px;
+  z-index: 3;
+}
+.fade-slide1 {
+  background: url('../img/onion-soup.jpg')no-repeat center;
+    background-size: cover;
+  animation:fade 8s infinite;
+-webkit-animation:fade 8s infinite;
+}
+.fade-slide2 {
+  background: url('../img/garlic-bread.jpg')no-repeat center;
+    background-size: cover;
+  animation:fade2 8s infinite;
+-webkit-animation:fade2 8s infinite;
+}
+.fade-slide3 {
+  background: url('../img/chicken-pot-pie.jpg')no-repeat center;
+    background-size: cover;
+  animation:fade3 8s infinite;
+-webkit-animation:fade3 8s infinite;
+}
+.fadeshow-background {
+  position: absolute;
+  background-color: white;
+  top: 50px;
+  height: 320px;
+  width: 500px;
+  z-index: 2;
+  background-size: 500px 320px;
+  background-image: url('../img/dinner-table.jpg');
+}
+
+@keyframes fade
+{
+  0%   {opacity:1}
+  33.333% { opacity: 0}
+  66.666% { opacity: 0}
+  100% { opacity: 1}
+}
+@keyframes fade2
+{
+  0%   {opacity:0}
+  33.333% { opacity: 1}
+  66.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade3
+{
+  0%   {opacity:0}
+  33.333% { opacity: 0}
+  66.666% { opacity: 1}
+  100% { opacity: 0}
 }
