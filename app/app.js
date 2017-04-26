@@ -7,6 +7,7 @@ import TwoDTreeCanvas from './components/TwoDTreeCanvas';
 import ResumeContent from './components/ResumeContent';
 import SnackNav from './components/SnackNav';
 import SlideShow from './components/SlideShow';
+import FadeShow from './components/FadeShow';
 import Demo from './components/Demo';
 import Recipe from './components/Recipe';
 import RecipeLeftSide from './components/RecipeLeftSide';
@@ -50,7 +51,7 @@ class Recipes extends React.Component {
     return (
       <div>
         <SnackNav/>
-        <SlideShow/>
+        <FadeShow/>
         <RecipeLeftSide onSelect={(e) => this.leftClicked(e)}/>
         <Recipe tabindex={index}/>
       </div>

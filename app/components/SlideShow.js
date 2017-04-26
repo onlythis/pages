@@ -36,7 +36,7 @@ export default class SlideShow extends React.Component {
         </a>
       </div>
       <div className="slideshow-cover" style={{width:window.innerWidth/2-150}}></div>
-      <div className="slideshow-cover" style={{width:window.innerWidth/2-165, right: 0}}></div>
+      <div className="slideshow-cover-right" style={{width:window.innerWidth/2-165}}></div>
       <div className="slideshow-pic-back" style={{left: window.innerWidth/2-150}}></div>
     </div>
   )

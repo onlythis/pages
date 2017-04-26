@@ -53,7 +53,7 @@ export default class Recipe extends React.Component {
     let panel_h = document.getElementsByClassName('panel-resizable')[0].offsetHeight;
     console.log(panel_h);
   }
-  
+
   render() {
     var tabindex = this.props.tabindex;
     let favsindex = this.state.favs;
@@ -103,7 +103,7 @@ export default class Recipe extends React.Component {
 
     return (
       <div className = "col-md-8 recipe-list" style={{backgroundColor: `${color}`}}>
-        <div className="recipes-list-container">
+        <div style={{marginTop: "340px"}} className="recipes-list-container">
           {recipes.map((recipe, i) => {
             return (
               <div key={i} className={panelhide[i]}>
