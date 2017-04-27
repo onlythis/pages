@@ -102,7 +102,7 @@ export default class Recipe extends React.Component {
     }
 
     return (
-      <div className = "col-md-8 recipe-list" style={{backgroundColor: `${color}`}}>
+      <div className = "col-md-8 recipe-list" style={{background: `${color}`, background: `linear-gradient(#3ad755, ${color})`}}>
         <div style={{marginTop: "340px"}} className="recipes-list-container">
           {recipes.map((recipe, i) => {
             return (
