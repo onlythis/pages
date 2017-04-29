@@ -295,19 +295,19 @@ ul.snacknav-menu > li:hover {
   z-index: -1;
 }
 
-.recipe-leftside {
+.recipe-leftside, .music-left {
   margin-top: -10px;
   padding: 0 !important;
   left: 0;
 }
-ul.recipe-sidebar-list-container {
+ul.recipe-sidebar-list-container, .music-left-list-container {
   list-style-type: none;
   padding: 0 !important;
 }
-ul.recipe-sidebar-list-container > div {
+ul.recipe-sidebar-list-container > div, .music-left-list-container > div {
   margin: 0;
 }
-li.recipe-sidebar-p {
+li.recipe-sidebar-p, .music-left-p {
   font-size: 30px;
   color: white;
   margin: auto;
@@ -485,4 +485,18 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   33.333% { opacity: 0}
   66.666% { opacity: 1}
   100% { opacity: 0}
+}
+
+.davidcutterimg {
+  background-image: url('../img/davidcuttermusic.jpg');
+  background-size: 200px;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+.davidcutterimg:hover {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  filter: grayscale(50%);
 }

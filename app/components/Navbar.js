@@ -35,6 +35,11 @@ export default class Navbar extends React.Component {
                   threeD Maze
                 </button></a>
               </div>
+              <div className="btn-group" role="group">
+                <Link to="music"><button type="button" className="btn btn-default navbar-btn">
+                  Marked
+                </button></Link>
+              </div>
             </div>
             <div className="nav navbar-nav navbar-right">
               <SearchBar searchHandler={(e) => this.searchHandler(e)}/>

@@ -11,6 +11,8 @@ import FadeShow from './components/FadeShow';
 import Demo from './components/Demo';
 import Recipe from './components/Recipe';
 import RecipeLeftSide from './components/RecipeLeftSide';
+import MusicFront from './components/MusicFront';
+import MusicLeft from './components/MusicLeft';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 class App extends React.Component {
@@ -118,6 +120,17 @@ class Resume extends React.Component {
   }
 }
 
+class Music extends React.Component {
+  render () {
+    return (
+      <div>
+        <MusicLeft/>
+        <MusicFront/>
+      </div>
+    )
+  }
+}
+
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
@@ -127,6 +140,7 @@ ReactDOM.render((
       <Route path="snapnsnack" component={SnapnSnack}/>
       <Route path="snapnsnack/bubbles" component={Bubbles}/>
       <Route path ="snapnsnack/recipes" component={Recipes}/>
+      <Route path="music" component={Music}/>
     </Route>
   </Router>
 ),document.getElementById('react-div'));
