@@ -486,17 +486,37 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   66.666% { opacity: 1}
   100% { opacity: 0}
 }
-
+.music-front-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .davidcutterimg {
   background-image: url('../img/davidcuttermusic.jpg');
   background-size: 200px;
   -moz-transition: all 1s;
   -webkit-transition: all 1s;
-  transition: all 1s;
+  transition: transform 1s, filter 1s, visibility 0s 0s;
 }
 .davidcutterimg:hover {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   filter: grayscale(50%);
+}
+.davidcutterimg:hover .playbutton {
+  visibility: visible;
+}
+.playbutton {
+  position: relative;
+  top: 80px;
+  left: 80px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  font-size: 35px;
+  transition: all .5s;
+  visibility: hidden;
+}
+.playbutton:hover {
+  transform: scale(1.5);
 }

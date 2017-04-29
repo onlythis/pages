@@ -43,9 +43,18 @@ export default class MusicFront extends React.Component {
 
   render() {
     return (
-      <div className = "col-md-8" style={{background: `linear-gradient(to right, #3ad755, #e44455)`}}>
-        <div className="davidcutterimg" style={{height: "200px", width: "200px"}}>
-
+      <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, #3ad755, #e44455)`}}>
+        <div className="col-md-6">
+          <div className="row">
+            <div className="davidcutterimg" style={{height: "200px", width: "200px"}}>
+              <div className="playbutton">
+                <span className="glyphicon glyphicon-play"></span>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            David Cutter
+          </div>
         </div>
       </div>
     )
