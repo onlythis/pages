@@ -147,7 +147,7 @@ export default class Recipe extends React.Component {
                   </div>
                   <div className="col-md-6 scroll-container">
                     <div className="scrollable">
-                      <div className="row artist-name">
+                      <div className="row chef-name">
                         Myself
                       </div>
                       <div className="row popular-rec">

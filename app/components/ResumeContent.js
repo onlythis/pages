@@ -32,10 +32,10 @@ export default class ResumeContent extends React.Component {
         <div className="panel panel-default">
           <p className="panel-header">WORK EXPERIENCE</p>
         </div>
-        <div className="row">
+        <div className="row res-row">
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
-              <div className="row">
+              <div className="row res-row">
                 <div className="col-md-6">
                   <p className="panel-header-left">Intern at Kiipo <br/> Taipei, Taiwan</p>
                 </div>
@@ -50,7 +50,7 @@ export default class ResumeContent extends React.Component {
           </div>
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
-              <div className="row">
+              <div className="row res-row">
                 <div className="col-md-6">
                   <p className="panel-header-left">Research Intern at Beth Isreal Deconess Medical Center <br/> Boston, MA</p>
                 </div>
@@ -65,7 +65,7 @@ export default class ResumeContent extends React.Component {
           </div>
           <div className="col-md-6">
             <div className="panel panel-default" id="bottom-work-panel">
-              <div className="row">
+              <div className="row res-row">
                 <div className="col-md-6">
                   <p className="panel-header-left">Lifegaurd at Boston Sports Club <br/> Lexington, MA</p>
                 </div>
@@ -79,7 +79,7 @@ export default class ResumeContent extends React.Component {
           </div>
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
-              <div className="row">
+              <div className="row res-row">
                 <div className="col-md-6">
                   <p className="panel-header-left">Cashier at Wilson Farm <br/> Lexington, MA</p>
                 </div>
@@ -95,7 +95,7 @@ export default class ResumeContent extends React.Component {
         <div className="panel panel-default">
           <p className="panel-header">EDUCATION</p>
           <hr />
-          <div className="row">
+          <div className="row res-row">
             <div className="col-md-6">
               <p className="panel-header-left" id="work-panel">B.A. in Computer Science <br/> University of Massachusetts, Amherst <br/> GPA: 3.00</p>
             </div>
@@ -104,7 +104,7 @@ export default class ResumeContent extends React.Component {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row res-row">
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Artificial Intelligence</p>
@@ -124,7 +124,7 @@ export default class ResumeContent extends React.Component {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row res-row">
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Computer Graphics</p>
