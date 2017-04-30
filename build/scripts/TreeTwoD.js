@@ -204,6 +204,9 @@ function drawParamsGen() {
   var red=0;
   var blue=0;
   var rb_incr=(1/roots[0].length)*2;
+  if(roots[0].length<16){
+    rb_incr=.125;
+  }
   for(var i = 0; i<roots[0].length; i++){
     var x = roots[0][i][0];
     var y = roots[0][i][1];

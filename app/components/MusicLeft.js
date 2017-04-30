@@ -20,29 +20,31 @@ export default class MusicLeft extends React.Component {
   render() {
     var menuItems = this.state.menuItems;
     return (
-      <div className = "col-md-2 music-left" style={{background: `linear-gradient(#332222, #141445)`, height: window.innerHeight}}>
-        <span id="music-icon-check" className="glyphicon glyphicon-ok"></span>
-        <hr />
-        <div className="music-search-cont navbar">
-          <SearchBar searchHandler={(e) => this.searchHandler(e)} music="true"/>
-        </div>
-        <hr />
-        <ul className = "music-left-list-container">
-          {menuItems.map((item, i) => {
-            if(this.state.active == i){
-              var activate = "active";
-              var color = this.state.backgroundColors[i];
+      <div className = "col-md-2 music-left">
+        <div className="affix" style={{background: `linear-gradient(#332222, #141445)`, height: window.innerHeight}}>
+          <span id="music-icon-check" className="glyphicon glyphicon-ok"></span>
+          <hr />
+          <div className="music-search-cont navbar">
+            <SearchBar searchHandler={(e) => this.searchHandler(e)} music="true"/>
+          </div>
+          <hr />
+          <ul className = "music-left-list-container">
+            {menuItems.map((item, i) => {
+              if(this.state.active == i){
+                var activate = "active";
+                var color = this.state.backgroundColors[i];
+              }
+              else { var activate = "not-active"; var color = "transparent";}
+              return (
+                <div key={i} className = "row" >
+                  <li className={`music-left-p ${activate}`} style={{backgroundColor: `${color}`}} onClick={(e) => this.handleClick(e, i)}> {item} </li>
+                </div>
+              )
             }
-            else { var activate = "not-active"; var color = "transparent";}
-            return (
-              <div key={i} className = "row" >
-                <li className={`music-left-p ${activate}`} style={{backgroundColor: `${color}`}} onClick={(e) => this.handleClick(e, i)}> {item} </li>
-              </div>
-            )
-          }
-        )}
-      </ul>
-    </div>
+          )}
+          </ul>
+        </div>
+      </div>
   )
 }
 }
