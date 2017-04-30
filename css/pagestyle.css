@@ -574,3 +574,6 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   width: 35px !important;
   height: 34px !important;
 }
+.affix {
+  width: inherit;
+}
