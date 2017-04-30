@@ -28,7 +28,7 @@ class App extends React.Component {
 class SnapnSnack extends React.Component {
   render () {
     return (
-      <div>
+      <div className="nav-padding">
         <SnackNav/>
         <SlideShow/>
       </div>
@@ -51,7 +51,7 @@ class Recipes extends React.Component {
   render () {
     var index = this.state.index;
     return (
-      <div>
+      <div className="nav-padding">
         <SnackNav/>
         <FadeShow/>
         <RecipeLeftSide onSelect={(e) => this.leftClicked(e)}/>
@@ -64,7 +64,7 @@ class Recipes extends React.Component {
 class Bubbles extends React.Component {
   render () {
     return (
-      <div>
+      <div className="nav-padding">
         <SnackNav/>
         <Demo/>
       </div>
@@ -87,7 +87,7 @@ class Reactpage extends React.Component {
   render() {
     var this_search = this.state.searched;
     return (
-      <div>
+      <div className="nav-padding">
         <NavBar searchHandler={(e) => this.handleSearch(e)}/>
         <Banner searched={this_search}/>
         <TwoDTreeCanvas/>
@@ -111,7 +111,7 @@ class Resume extends React.Component {
   render() {
     var this_search = this.state.searched;
     return (
-      <div>
+      <div className="nav-padding">
         <NavBar searchHandler={(e) => this.handleSearch(e)}/>
         <Banner searched={this_search}/>
         <ResumeContent/>
