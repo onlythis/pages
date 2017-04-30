@@ -43,8 +43,36 @@ export default class MusicFront extends React.Component {
 
   render() {
     return (
-      <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, #3ad755, #e44455)`}}>
-        <div className="col-md-6 album-cont">
+      <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, #3ad755, #e44455)`, height: "2000px"}}>
+        <div className="col-md-4 album-cont">
+          <div className="row music-img">
+            <div className="davidcutterimg" style={{height: "200px", width: "200px"}}>
+              <div className="playbutton">
+                <span className="glyphicon glyphicon-play"></span>
+              </div>
+            </div>
+          </div>
+          <div className="img-info">
+            <div className="row">
+              <a className="album-title">S2</a> • <a className="artist-name">David Cutter</a>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4 album-cont">
+          <div className="row music-img">
+            <div className="davidcutterimg" style={{height: "200px", width: "200px"}}>
+              <div className="playbutton">
+                <span className="glyphicon glyphicon-play"></span>
+              </div>
+            </div>
+          </div>
+          <div className="img-info">
+            <div className="row">
+              <a className="album-title">S2</a> • <a className="artist-name">David Cutter</a>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-4 album-cont">
           <div className="row music-img">
             <div className="davidcutterimg" style={{height: "200px", width: "200px"}}>
               <div className="playbutton">

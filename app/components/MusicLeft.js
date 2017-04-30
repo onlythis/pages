@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SearchBar from './Searchbar';
 export default class MusicLeft extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,13 @@ export default class MusicLeft extends React.Component {
   render() {
     var menuItems = this.state.menuItems;
     return (
-      <div className = "col-md-2 music-left">
+      <div className = "col-md-2 music-left" style={{background: `linear-gradient(#332222, #141445)`, height: window.innerHeight}}>
+        <span id="music-icon-check" className="glyphicon glyphicon-ok"></span>
+        <hr />
+        <div className="music-search-cont navbar">
+          <SearchBar searchHandler={(e) => this.searchHandler(e)} music="true"/>
+        </div>
+        <hr />
         <ul className = "music-left-list-container">
           {menuItems.map((item, i) => {
             if(this.state.active == i){

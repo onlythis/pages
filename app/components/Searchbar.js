@@ -47,12 +47,18 @@ export default class SearchBar extends React.Component {
     // submits the form to the server with a POST command and refreshes
     // the page as a default action. The onSubmit handler below prevents that
     // from happening.
+    if(this.props.music=="true"){
+      var classname="form-control music-search";
+      var holder="Search";
+    }
+    else {var classname="form-control search";
+          var holder = "Search Pages"}
     return (
       <form onSubmit={(evt) => evt.preventDefault()} className="navbar-form navbar-left" role="search">
         <div className="input-group">
-          <input type="text" className="form-control search" placeholder="Search Pages" value={this.state.searchTerm} onChange={(e) => this.handleChange(e)} onKeyUp={(e) => this.handleKeyUp(e)}  />
+          <input type="text" className={classname} placeholder={holder} value={this.state.searchTerm} onChange={(e) => this.handleChange(e)} onKeyUp={(e) => this.handleKeyUp(e)}  />
           <span className="input-group-btn">
-            <button type="button" className="btn btn-default" onClick={(e) => this.handleSearchButtonClick(e)}>
+            <button type="button" className="btn btn-default search-btn" onClick={(e) => this.handleSearchButtonClick(e)}>
               <span className="glyphicon glyphicon-search"></span>
             </button>
           </span>
