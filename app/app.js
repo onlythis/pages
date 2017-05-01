@@ -25,7 +25,7 @@ class App extends React.Component {
   }
 }
 
-class SnapnSnack extends React.Component {
+class Recipes extends React.Component {
   render () {
     return (
       <div className="nav-padding">
@@ -36,7 +36,7 @@ class SnapnSnack extends React.Component {
   }
 }
 
-class Recipes extends React.Component {
+class SnapnSnack extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -113,6 +113,7 @@ class Reactpage extends React.Component {
       <div className="nav-padding">
         <NavBar searchHandler={(e) => this.handleSearch(e)}/>
         <Banner searched={this_search}/>
+        <Panel/>
         <TwoDTreeCanvas/>
       </div>
     );

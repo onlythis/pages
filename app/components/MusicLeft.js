@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './Searchbar';
+import {Link} from 'react-router';
 export default class MusicLeft extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ export default class MusicLeft extends React.Component {
     return (
       <div className = "col-md-2 music-left">
         <div className="affix" style={{background: `linear-gradient(#332222, #141445)`, height: window.innerHeight}}>
-          <span id="music-icon-check" className="glyphicon glyphicon-ok"></span>
+          <Link to="#"><span id="music-icon-check" className="glyphicon glyphicon-ok"></span></Link>
           <hr />
           <div className="music-search-cont navbar">
             <SearchBar searchHandler={(e) => this.searchHandler(e)} music="true"/>

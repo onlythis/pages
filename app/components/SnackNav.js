@@ -31,7 +31,7 @@ export default class SnackNav extends React.Component {
                 </ul>
               </li>
               <li className="snacknav-menu-item"><Link to="snapnsnack/recipes">
-                Recipes
+                SlideShow
               </Link></li>
               </ul>
           </div>

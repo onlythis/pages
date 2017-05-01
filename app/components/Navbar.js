@@ -37,7 +37,7 @@ export default class Navbar extends React.Component {
               </div>
               <div className="btn-group" role="group">
                 <Link to="music"><button type="button" className="btn btn-default navbar-btn">
-                  Marked
+                  Simplify
                 </button></Link>
               </div>
             </div>
