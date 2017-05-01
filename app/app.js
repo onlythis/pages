@@ -61,6 +61,29 @@ class Recipes extends React.Component {
   }
 }
 
+class Music extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 1
+    };
+  }
+  leftClicked(ind){
+    var index = this.state.index;
+    index=ind;
+    this.setState({index});
+  }
+  render () {
+    var index = this.state.index;
+    return (
+      <div>
+        <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
+        <MusicFront tabindex={index}/>
+      </div>
+    )
+  }
+}
+
 class Bubbles extends React.Component {
   render () {
     return (
@@ -120,16 +143,7 @@ class Resume extends React.Component {
   }
 }
 
-class Music extends React.Component {
-  render () {
-    return (
-      <div>
-        <MusicLeft/>
-        <MusicFront/>
-      </div>
-    )
-  }
-}
+
 
 ReactDOM.render((
   <Router history={browserHistory}>
