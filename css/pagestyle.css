@@ -576,7 +576,7 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   background-color: transparent;
 }
 .music-search {
-  width:         calc(100% - 100px); !important;
+  width:         calc(100% - 100px);
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background-color: #999999;
@@ -588,4 +588,26 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
 }
 .affix {
   width: inherit;
+}
+.panel-frontpage {
+  height: 100%;
+  padding-bottom: 20px;
+}
+.panel-img {
+  width: 40vw;
+  height: 40vw;
+  background-size: cover;
+  margin: 0 auto;
+}
+.threedimg {
+  background-image: url('../img/threedimg.png');
+}
+.musicimg {
+  background-image: url('../img/musicimg.png');
+}
+.snapnsnackimg {
+  background-image: url('../img/snapnsnackimg.png');
+}
+.frontpage-link:hover, .frontpage-link:focus {
+  text-decoration: none !important;
 }
