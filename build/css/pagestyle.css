@@ -9,11 +9,16 @@ body {
 .nav-padding {
   padding-top: 60px;
 }
-
-canvas {
-  margin: auto;
+.canvas-cont {
+  text-align: center;
 }
-
+canvas {
+  display: inline-block;
+}
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 button.refresh {
   margin-right: 20px;
 }
@@ -23,7 +28,6 @@ input.panel-input {
   background: rgba(122, 130, 136, 0.8)!important;
   width: 50px !important;
 }
-
 div.panel-default p.panel-content {
   text-align: center;
   color: white;
@@ -37,7 +41,6 @@ p.panel-header {
   color: #99ff99;
   font-size: 20px;
 }
-
 p.panel-header-left {
   text-align: left;
   margin-left: 20px;
@@ -53,6 +56,15 @@ p.panel-header-right {
   color: #99ff99;
   font-size: 16px;
 }
+p.p-work-exp {
+  margin-bottom: 15px;
+}
+p.p-edu {
+  margin-bottom: 10px;
+}
+#edu-years {
+  margin-top: 0;
+}
 #work-panel {
   margin-top: 0px;
 }
@@ -63,7 +75,6 @@ p.panel-header-right {
 p.work-content {
   font-size: 16px !important;
 }
-
 .search {
   width: 195px !important;
   border-top-left-radius: 15px;
@@ -71,25 +82,17 @@ p.work-content {
   background-color: #999999;
   color: white;
 }
-
 input, input::-webkit-input-placeholder, textarea {
   color: white !important;
 }
-
 a, a:visited {
   color: #3b5998;
   font-weight: bold;
 }
-
 div.panel, div.panel-footer {
   background: rgba(122, 130, 136, 0.6)!important;
   margin-top: 20px;
 }
-div.panel-footer.btn-group {
-  margin: auto;
-  font-size: 50px;
-}
-
 .banner {
   margin: auto;
   width: 50%;
@@ -108,13 +111,11 @@ div.panel-footer.btn-group {
 .navbar-header {
   padding-left: 8px;
 }
-
 .navbar button {
   background-color: transparent;
   border: none;
   color: white;
 }
-
 /* Make buttons slightly darker when the user hovers over it, like Facebook
 does. */
 .navbar button:hover {
@@ -166,24 +167,20 @@ a.dropdown-toggle:hover {
   color: #22345c;
   background-color: transparent !important;
 }
-
 .dropdown-menu .sub-menu {
   left: 100%;
   top: 0;
   visibility: hidden;
 }
-
 .dropdown-menu li:hover .sub-menu {
   visibility: visible;
 }
-
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 .nav-pills .dropdown-menu {
   margin-top: 0;
 }
-
 #snack-dropdown {
   background-color: rgba(122, 130, 136, 0.6) !important;
   margin-left: -18px;
@@ -199,26 +196,21 @@ a.dropdown-toggle:hover {
   padding: 0px;
   text-align: center;
 }
-
 .snacknav-menu {
   position: absolute;
   left: 50%;
   transform: translatex(-50%);
 }
-
 ul.snacknav-menu a {
   color: red !important;
 }
-
 ul.snacknav-menu > li:hover {
   background-color: rgba(122, 130, 136, 0.6);
 }
-
 .slideshow-container {
   height: 300px;
   margin-top: -10px;
 }
-
 .demo1-ball {
   border-radius: 150px;
   background-color: white;
@@ -255,8 +247,6 @@ ul.snacknav-menu > li:hover {
 .slide-circle-third {
   background-image: url('../img/chicken-pot-pie.jpg');
 }
-
-
 .slide-next, .slide-prev {
   cursor: pointer;
   position: absolute;
@@ -296,7 +286,6 @@ ul.snacknav-menu > li:hover {
   width: 321px;
   z-index: -1;
 }
-
 .recipe-leftside {
   margin-top: -10px;
   padding: 0 !important;
@@ -319,20 +308,12 @@ li.recipe-sidebar-p, .music-left-p {
 li.not-active:hover {
   background-color: rgba(122, 130, 136, 0.6) !important;
 }
-
-hr.interact-hr {
-  margin-bottom: -1px;
-  margin-top: 0px;
-  width: 98%;
-}
-
 div.interact-header-container {
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0;
   height: 100%;
 }
-
 p.interact-recipes-panel-header {
   text-align: left;
   color: #99ff99;
@@ -340,33 +321,32 @@ p.interact-recipes-panel-header {
   margin: 0;
   margin-top: 3px;
 }
-
 div.interact-right-buttons {
   right: 20px;
   width: 50%;
   position: absolute;
 }
-
 span.glyphicon {
   margin-top: 3px;
 }
 span.glyphicon-search {
   margin-top: 2px;
-  margin-left: -2px;
+  margin-left: -3px;
+}
+.search-btn {
+  width: 36px !important;
+  height: 34px !important;
 }
 button.interact-but {
   padding-bottom: 5px;
 }
-
 .recipe-list {
   margin-top: -10px;
   padding: 0;
 }
-
 .recipes-list-container > div {
   margin: 20px !important;
 }
-
 p.ingredient {
   color: white;
   font-size: 20px;
@@ -381,23 +361,20 @@ div.quantity-div {
 div.ingredient-row {
   border-bottom: 3px solid red;
 }
-
 hr.hr-nopad {
   padding: 0;
   margin-top: 0;
+  margin-bottom: 10px;
 }
-
 button.fav-red, button.fav-red:hover, button.fav-red:focus {
   background-color: red;
   border-color: red;
-
 }
 .recipe-img {
-  height:100px;
-  width: 100px;
-  background-size: 100px;
+  height:9vw;
+  width: 9vw;
+  background-size: cover;
 }
-
 .panel-resizable {
   resize: vertical;
   overflow: hidden;
@@ -422,7 +399,6 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   margin: 0;
   color: white;
 }
-
 .fadeshow {
   margin: 0;
   position: relative;
@@ -494,21 +470,18 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   padding-bottom: 10px;
 }
 .album-cover {
-  min-width: 200px;
-  height: 200px;
-  background-size: 200px;
+  width: 18.5vw;
+  height: 18.5vw;
+  background-size: cover;
   -moz-transition: all 1s;
   -webkit-transition: all 1s;
-  transition: transform 1s, filter 1s, visibility 0s 0s;
+  transition: transform 1s, filter 1s;
 }
 .album-cover:hover {
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   filter: grayscale(20%);
-}
-.album-cover:hover .playbutton {
-  visibility: visible;
 }
 .davidcutterimg {
   background-image: url('../img/davidcuttermusic.jpg');
@@ -519,10 +492,13 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
 .madeinheightsimg {
   background-image: url('../img/madeinheights.jpg');
 }
+.album-cover:hover .playbutton {
+  visibility: visible;
+}
 .playbutton {
   position: relative;
-  top: 80px;
-  left: 80px;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
   width: 40px;
   height: 40px;
   margin: 0;
@@ -576,21 +552,16 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   background-color: transparent;
 }
 .music-search {
-  width:         calc(100% - 100px);
+  width: calc(100% - 100px);
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background-color: #999999;
   color: white;
 }
-.search-btn {
-  width: 35px !important;
-  height: 34px !important;
-}
 .affix {
   width: inherit;
 }
 .panel-frontpage {
-  height: 100%;
   padding-bottom: 20px;
 }
 .panel-img {

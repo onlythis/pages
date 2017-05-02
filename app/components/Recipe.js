@@ -20,151 +20,153 @@ export default class Recipe extends React.Component {
             favs: [1,0,0],
           }
         }
+    componentDidMount() {
+      window.scrollTo(0, 0);
+    }
+    handleAdd(e, dirr) {
+      e.preventDefault();
+      var recipes = this.state.recipes;
+      recipes.push({contents: "hello"});
+      this.setState({recipes});
+    }
+    handleRemove(e, i) {
+      e.preventDefault();
+      var recipes = this.state.recipes;
+      var hidden = this.state.hidden;
+      var favs = this.state.favs;
+      favs.splice(i,1);
+      hidden.splice(i,1);
+      recipes.splice(i, 1);
+      this.setState({recipes, hidden});
+    }
+    handleExpand(e, i) {
+      e.preventDefault();
+      var hidden = this.state.hidden;
+      hidden[i] = !hidden[i];
+      this.setState({hidden});
+    }
+    handleFav(e, i) {
+      e.preventDefault();
+      var favs = this.state.favs;
+      favs[i] = !favs[i];
+      this.setState({favs});
+    }
+    componentDidUpdate() {
+      let panel_h = document.getElementsByClassName('panel-resizable')[0].offsetHeight;
+      console.log(panel_h);
+    }
 
-  handleAdd(e, dirr) {
-    e.preventDefault();
-    var recipes = this.state.recipes;
-    recipes.push({contents: "hello"});
-    this.setState({recipes});
-  }
-  handleRemove(e, i) {
-    e.preventDefault();
-    var recipes = this.state.recipes;
-    var hidden = this.state.hidden;
-    var favs = this.state.favs;
-    favs.splice(i,1);
-    hidden.splice(i,1);
-    recipes.splice(i, 1);
-    this.setState({recipes, hidden});
-  }
-  handleExpand(e, i) {
-    e.preventDefault();
-    var hidden = this.state.hidden;
-    hidden[i] = !hidden[i];
-    this.setState({hidden});
-  }
-  handleFav(e, i) {
-    e.preventDefault();
-    var favs = this.state.favs;
-    favs[i] = !favs[i];
-    this.setState({favs});
-  }
-  componentDidUpdate() {
-    let panel_h = document.getElementsByClassName('panel-resizable')[0].offsetHeight;
-    console.log(panel_h);
-  }
-
-  render() {
-    var tabindex = this.props.tabindex;
-    let favsindex = this.state.favs;
-    let favsbuttoncolor = [];
-    favsindex.map((fav) => {
-      if(fav) {
-        favsbuttoncolor.push("btn btn-default interact-but fav-but fav-red");
-      } else {
-        favsbuttoncolor.push("btn btn-default interact-but fav-but");
-      }
-    });
-    var recipes = this.state.recipes;
-    var panelhide = [];
-    if(tabindex == 0) {
+    render() {
+      var tabindex = this.props.tabindex;
+      let favsindex = this.state.favs;
+      let favsbuttoncolor = [];
       favsindex.map((fav) => {
         if(fav) {
-          panelhide.push("row panel panel-default");
+          favsbuttoncolor.push("btn btn-default interact-but fav-but fav-red");
         } else {
-          panelhide.push("row panel panel-default hide");
+          favsbuttoncolor.push("btn btn-default interact-but fav-but");
         }
       });
-    } else {
-      favsindex.map((fav) => {
-        panelhide.push("row panel panel-default");
-      });
-    }
-    var color = this.state.backgroundColors[tabindex];
-    let hidden = this.state.hidden;
-    let panelbodyclasses = [];
-    let hrclasses = [];
-    let expandglyph = [];
-    hidden.map((hide) => {
-      if(hide) {
-        panelbodyclasses.push(`panel-body hide`);
-        hrclasses.push("panel-body hr-nopad hide");
-        expandglyph.push("glyphicon glyphicon-chevron-up");
+      var recipes = this.state.recipes;
+      var panelhide = [];
+      if(tabindex == 0) {
+        favsindex.map((fav) => {
+          if(fav) {
+            panelhide.push("row panel panel-default");
+          } else {
+            panelhide.push("row panel panel-default hide");
+          }
+        });
       } else {
-        panelbodyclasses.push(`panel-body panel-resizable nothide`);
-        hrclasses.push("panel-body hr-nopad nothide");
-        expandglyph.push("glyphicon glyphicon-chevron-down");
+        favsindex.map((fav) => {
+          panelhide.push("row panel panel-default");
+        });
       }
-    });
-    var pop_pees = [];
-    for(let i = 0; 10>i; i++){
-      pop_pees.push(<div className="row popular-rec" key={i}>Chicken and rice</div>);
-    }
+      var color = this.state.backgroundColors[tabindex];
+      let hidden = this.state.hidden;
+      let panelbodyclasses = [];
+      let hrclasses = [];
+      let expandglyph = [];
+      hidden.map((hide) => {
+        if(hide) {
+          panelbodyclasses.push(`panel-body hide`);
+          hrclasses.push("panel-body hr-nopad hide");
+          expandglyph.push("glyphicon glyphicon-chevron-up");
+        } else {
+          panelbodyclasses.push(`panel-body panel-resizable nothide`);
+          hrclasses.push("panel-body hr-nopad nothide");
+          expandglyph.push("glyphicon glyphicon-chevron-down");
+        }
+      });
+      var pop_pees = [];
+      for(let i = 0; 10>i; i++){
+        pop_pees.push(<div className="row popular-rec" key={i}>Chicken and rice</div>);
+      }
 
-    return (
-      <div className = "col-md-8 recipe-list" style={{background: `${color}`, background: `linear-gradient(#3ad755, ${color})`}}>
-        <div style={{marginTop: "340px"}} className="recipes-list-container">
-          {recipes.map((recipe, i) => {
-            return (
-              <div key={i} className={panelhide[i]}>
-                <div className="row interact-header-container">
-                  <div className="col-md-6">
-                    <div className="pull-left">
-                      <p className="interact-recipes-panel-header">{recipe.contents}</p>
+      return (
+        <div className = "col-md-8 recipe-list" style={{background: `${color}`, background: `linear-gradient(#3ad755, ${color})`}}>
+          <div style={{marginTop: "340px"}} className="recipes-list-container">
+            {recipes.map((recipe, i) => {
+              return (
+                <div key={i} className={panelhide[i]}>
+                  <div className="row interact-header-container">
+                    <div className="col-md-6">
+                      <div className="pull-left">
+                        <p className="interact-recipes-panel-header">{recipe.contents}</p>
+                      </div>
+                    </div>
+                    <div className="col-md-2">
+                      <button type="button" className="btn btn-default interact-but expand-but" onClick={(e) => this.handleExpand(e, i)}>
+                        <span className={expandglyph[i]}></span>
+                      </button>
+                    </div>
+                    <div className="col-md-2">
+                      <button type="button" className={favsbuttoncolor[i]} onClick={(e) => this.handleFav(e, i)}>
+                        <span className="glyphicon glyphicon-heart"></span>
+                      </button>
+                    </div>
+                    <div className="col-md-2">
+                      <button type="button" className="btn btn-default interact-but del-but" onClick={(e) => this.handleRemove(e, i)}>
+                        <span className="glyphicon glyphicon-remove"></span>
+                      </button>
                     </div>
                   </div>
-                  <div className="col-md-2">
-                    <button type="button" className="btn btn-default interact-but expand-but" onClick={(e) => this.handleExpand(e, i)}>
-                      <span className={expandglyph[i]}></span>
-                    </button>
-                  </div>
-                  <div className="col-md-2">
-                    <button type="button" className={favsbuttoncolor[i]} onClick={(e) => this.handleFav(e, i)}>
-                      <span className="glyphicon glyphicon-heart"></span>
-                    </button>
-                  </div>
-                  <div className="col-md-2">
-                    <button type="button" className="btn btn-default interact-but del-but" onClick={(e) => this.handleRemove(e, i)}>
-                      <span className="glyphicon glyphicon-remove"></span>
-                    </button>
-                  </div>
-                </div>
-                <hr className={hrclasses[i]}/>
-                <div className={panelbodyclasses[i]}>
-                  <div className="col-md-3">
-                    {recipe.ingredients.map((ingredient, j) => {
-                      return (
-                        <div key={j} className="row ingredient-row">
-                          <div className="pull-left">
-                            <p className="ingredient">{ingredient}</p>
+                  <hr className={hrclasses[i]}/>
+                  <div className={panelbodyclasses[i]}>
+                    <div className="col-md-3">
+                      {recipe.ingredients.map((ingredient, j) => {
+                        return (
+                          <div key={j} className="row ingredient-row">
+                            <div className="pull-left">
+                              <p className="ingredient">{ingredient}</p>
+                            </div>
+                            <div className="pull-right quantity-div">
+                              <p className="quantity">4</p>
+                            </div>
                           </div>
-                          <div className="pull-right quantity-div">
-                            <p className="quantity">4</p>
-                          </div>
+                        )
+                      })}
+                    </div>
+                    <div className="col-md-6 scroll-container">
+                      <div className="scrollable">
+                        <div className="row chef-name">
+                          Myself
                         </div>
-                      )
-                    })}
-                  </div>
-                  <div className="col-md-6 scroll-container">
-                    <div className="scrollable">
-                      <div className="row chef-name">
-                        Myself
+                        <div className="row popular-rec">
+                          Popular recipes:
+                        </div>
+                        {pop_pees}
                       </div>
-                      <div className="row popular-rec">
-                        Popular recipes:
-                      </div>
-                      {pop_pees}
+                    </div>
+                    <div className="col-md-3 container">
+                      <div className="recipe-img slide-circle-first"> </div>
                     </div>
                   </div>
-                  <div className="col-md-3 container">
-                    <div className="recipe-img slide-circle-first"> </div>
-                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
-}

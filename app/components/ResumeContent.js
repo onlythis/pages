@@ -30,7 +30,7 @@ export default class ResumeContent extends React.Component {
             OpenGL, Django, Node.js, React.js, Bootstrap, MongoDB </p>
         </div>
         <div className="panel panel-default">
-          <p className="panel-header">WORK EXPERIENCE</p>
+          <p className="panel-header p-work-exp">WORK EXPERIENCE</p>
         </div>
         <div className="row res-row">
           <div className="col-md-6">
@@ -97,10 +97,10 @@ export default class ResumeContent extends React.Component {
           <hr />
           <div className="row res-row">
             <div className="col-md-6">
-              <p className="panel-header-left" id="work-panel">B.A. in Computer Science <br/> University of Massachusetts, Amherst <br/> GPA: 3.00</p>
+              <p className="panel-header-left p-edu" id="work-panel">B.A. in Computer Science <br/> GPA: 3.00</p>
             </div>
             <div className="col-md-6">
-              <p className="panel-header-right">2013 - 2016</p>
+              <p className="panel-header-right" id="edu-years">University of Massachusetts, Amherst  <br/> 2013 - 2016</p>
             </div>
           </div>
         </div>

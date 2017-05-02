@@ -59,7 +59,7 @@ export default class TwoDTreeCanvas extends React.Component {
         <div className="panel panel-default">
           <p className="panel-header">Maze</p>
           <hr />
-          <div className="panel-body">
+          <div className="panel-body canvas-cont">
             <canvas width = "512" height = "512" id = "my_Canvas"></canvas>
           </div>
           <div className="panel-footer">

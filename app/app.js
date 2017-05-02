@@ -13,6 +13,7 @@ import Recipe from './components/Recipe';
 import RecipeLeftSide from './components/RecipeLeftSide';
 import MusicFront from './components/MusicFront';
 import MusicLeft from './components/MusicLeft';
+import MusicRight from './components/MusicRight';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 class App extends React.Component {
@@ -73,12 +74,16 @@ class Music extends React.Component {
     index=ind;
     this.setState({index});
   }
+  albumClicked(i) {
+    console.log(i);
+  }
   render () {
     var index = this.state.index;
     return (
       <div>
         <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
-        <MusicFront tabindex={index}/>
+        <MusicFront tabindex={index} onClick={(i) => this.albumClicked(i)}/>
+        <MusicRight/>
       </div>
     )
   }

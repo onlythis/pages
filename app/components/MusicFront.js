@@ -22,8 +22,12 @@ export default class MusicFront extends React.Component {
     }
   }
   componentDidMount() {
-  window.scrollTo(0, 0)
-}
+    window.scrollTo(0, 0);
+  }
+  albumSelect(e, ind) {
+    e.preventDefault();
+    this.props.onClick(ind);
+  }
 
   render() {
     var tabindex = this.props.tabindex;
@@ -49,7 +53,7 @@ export default class MusicFront extends React.Component {
                   <div key={i}>
                     <div className="col-md-4 album-cont">
                       <div className="row music-img">
-                        <div className={`album-cover ${albums[ind].cover}`}>
+                        <div className={`album-cover ${albums[ind].cover}`} onClick={e => this.albumSelect(e, ind)}>
                           <div className="playbutton">
                             <span className="glyphicon glyphicon-play"></span>
                           </div>
