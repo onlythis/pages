@@ -22,7 +22,7 @@ export default class MusicLeft extends React.Component {
     var menuItems = this.state.menuItems;
     return (
       <div className = "col-md-2 music-left">
-        <div className="affix" style={{background: `linear-gradient(#332222, #141445)`, height: window.innerHeight}}>
+        <div className="affix" style={{background: `linear-gradient(#222222, #141445)`, height: window.innerHeight}}>
           <Link to="#"><span id="music-icon-check" className="glyphicon glyphicon-ok"></span></Link>
           <hr />
           <div className="music-search-cont navbar">
@@ -43,9 +43,9 @@ export default class MusicLeft extends React.Component {
               )
             }
           )}
-          </ul>
-        </div>
+        </ul>
       </div>
+    </div>
   )
 }
 }

@@ -66,7 +66,8 @@ class Music extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 1
+      index: 1,
+      albumSelected: 1
     };
   }
   leftClicked(ind){
@@ -75,15 +76,17 @@ class Music extends React.Component {
     this.setState({index});
   }
   albumClicked(i) {
-    console.log(i);
+    this.setState({albumSelected: i});
   }
   render () {
     var index = this.state.index;
+    var sel = this.state.albumSelected;
+    console.log(sel);
     return (
       <div>
         <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
         <MusicFront tabindex={index} onClick={(i) => this.albumClicked(i)}/>
-        <MusicRight/>
+        <MusicRight albumSel={sel}/>
       </div>
     )
   }

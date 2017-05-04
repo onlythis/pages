@@ -465,6 +465,15 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   66.666% { opacity: 1}
   100% { opacity: 0}
 }
+.davidcutterimg {
+  background-image: url('../img/davidcuttermusic.jpg');
+}
+.genwhyimg {
+  background-image: url('../img/generationwhy.jpg');
+}
+.madeinheightsimg {
+  background-image: url('../img/madeinheights.jpg');
+}
 .music-front-container {
   padding-top: 90px;
   padding-bottom: 10px;
@@ -483,14 +492,12 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   transform: scale(1.1);
   filter: grayscale(20%);
 }
-.davidcutterimg {
-  background-image: url('../img/davidcuttermusic.jpg');
-}
-.genwhyimg {
-  background-image: url('../img/generationwhy.jpg');
-}
-.madeinheightsimg {
-  background-image: url('../img/madeinheights.jpg');
+.album-cover-right {
+  margin-top: 30px;
+  width: 13.5vw;
+  height: 13.5vw;
+  background-size: cover;
+  display: inline-block;
 }
 .album-cover:hover .playbutton {
   visibility: visible;
@@ -520,6 +527,10 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
 .img-info {
   margin-top: 20px;
 }
+.album-right-info {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .album-cont {
   text-align: center;
   padding: 0;
@@ -539,6 +550,11 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
 .music-left {
   padding: 0 !important;
   left: 0;
+}
+.music-right {
+  padding: 0 !important;
+  right: 0;
+  text-align: center;
 }
 #music-icon-check {
   font-size: 30px;
@@ -581,4 +597,8 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
 }
 .frontpage-link:hover, .frontpage-link:focus {
   text-decoration: none !important;
+}
+.similar {
+  font-size: 24px;
+  color: white;
 }

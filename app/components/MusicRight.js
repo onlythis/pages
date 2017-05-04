@@ -5,9 +5,27 @@ export default class MusicRight extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuItems: ["Favorites", "New", "Browse"],
-      active: 1,
-      backgroundColors: ["rgba(80,20,20,20)",'rgba(20,80,20,20)', 'rgba(20,20,80,20)'],
+      albums: [
+        { cover: "davidcutterimg",
+          title: "S2",
+          artist: "David Cutter"
+        },
+        { cover: "genwhyimg",
+          title: "GENERATIONWHY",
+          artist: "ZHU"
+        },
+        { cover: "madeinheightsimg",
+          title: "Without My Enemy What Would I Do",
+          artist: "Made in Heights"
+        }
+      ],
+      tracklist: ["one", "two", "three"]
+    }
+  }
+  componentWillMount() {
+    var tracklist = [];
+    for(let i = 0; 10>i; i++){
+      tracklist.push(<div className="row popular-rec" key={i}>Chicken and rice</div>);
     }
   }
 
@@ -20,32 +38,41 @@ export default class MusicRight extends React.Component {
   }
   render() {
     var menuItems = this.state.menuItems;
+    var sel = this.props.albumSel;
+    var albums = this.state.albums;
+    var tracklist = this.state.tracklist;
     return (
-      <div className = "col-md-2 music-left">
+      <div className = "col-md-2 music-right">
         <div className="affix" style={{background: `linear-gradient(#332222, #141445)`, height: window.innerHeight}}>
-          <Link to="#"><span id="music-icon-check" className="glyphicon glyphicon-ok"></span></Link>
-          <hr />
-          <div className="music-search-cont navbar">
-            <SearchBar searchHandler={(e) => this.searchHandler(e)} music="true"/>
+          <div className={`album-cover-right ${albums[sel].cover}`} onClick={e => this.albumSelect(e, ind)}>
           </div>
-          <hr />
-          <ul className = "music-left-list-container">
-            {menuItems.map((item, i) => {
-              if(this.state.active == i){
-                var activate = "active";
-                var color = this.state.backgroundColors[i];
-              }
-              else { var activate = "not-active"; var color = "transparent";}
+          <div className="album-right-info">
+            <div className="row">
+              <a className="album-title">{albums[sel].title}</a> • <a className="artist-name">{albums[sel].artist}</a>
+            </div>
+          </div>
+          <div className="album-tracklist">
+            {tracklist.map((track, i) => {
               return (
-                <div key={i} className = "row" >
-                  <li className={`music-left-p ${activate}`} style={{backgroundColor: `${color}`}} onClick={(e) => this.handleClick(e, i)}> {item} </li>
+                <div className="row">
+                  <a className="album-track">{track}</a>
                 </div>
               )
-            }
-          )}
-          </ul>
+            })}
+          </div>
+          <hr />
+          <p className="similar">Similar</p>
+          <div className="album-tracklist">
+            {tracklist.map((track, i) => {
+              return (
+                <div className="row">
+                  <a className="album-track">{track}</a>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
-  )
-}
+    )
+  }
 }
