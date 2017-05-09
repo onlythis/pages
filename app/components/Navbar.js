@@ -20,26 +20,18 @@ export default class Navbar extends React.Component {
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div className="nav navbar-nav navbar-left">
-              <div className="btn-group" role="group">
                 <Link to="resume"><button type="button" className="btn btn-default navbar-btn">
                   Resume
                 </button></Link>
-              </div>
-              <div className="btn-group" role="group">
                 <Link to="snapnsnack"><button type="button" className="btn btn-default navbar-btn">
                   Snap & Snack
                 </button></Link>
-              </div>
-              <div className="btn-group" role="group">
                 <a href="https://onlythis.github.io/three3d/"><button type="button" className="btn btn-default navbar-btn">
                   threeD Maze
                 </button></a>
-              </div>
-              <div className="btn-group" role="group">
                 <Link to="music"><button type="button" className="btn btn-default navbar-btn">
                   Simplify
                 </button></Link>
-              </div>
             </div>
             <div className="nav navbar-nav navbar-right">
               <SearchBar searchHandler={(e) => this.searchHandler(e)}/>

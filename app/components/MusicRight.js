@@ -34,7 +34,6 @@ export default class MusicRight extends React.Component {
     let icon = this.refs.mycomponent;
     const domNode = ReactDOM.findDOMNode(icon);
     domNode.getBoundingClientRect()
-    console.log(domNode);
   }
   handleClick(e, ind) {
     e.preventDefault();

@@ -12,6 +12,7 @@ import Demo from './components/Demo';
 import Recipe from './components/Recipe';
 import RecipeLeftSide from './components/RecipeLeftSide';
 import MusicFront from './components/MusicFront';
+import MusicFrontSongs from './components/MusicFrontSongs';
 import MusicLeft from './components/MusicLeft';
 import MusicRight from './components/MusicRight';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
@@ -67,7 +68,8 @@ class Music extends React.Component {
     super(props);
     this.state = {
       index: 1,
-      albumSelected: 1
+      albumSelected: 1,
+      tabSel: 1
     };
   }
   leftClicked(ind){
@@ -78,13 +80,21 @@ class Music extends React.Component {
   albumClicked(i) {
     this.setState({albumSelected: i});
   }
+  tabSel(i) {
+    this.setState({tabSel: i});
+  }
   render () {
     var index = this.state.index;
     var sel = this.state.albumSelected;
+    if(this.state.tabSel){
+      var front = <MusicFront tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}/>;
+    } else {
+      var front = <MusicFrontSongs tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}/>;
+    }
     return (
       <div>
         <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
-        <MusicFront tabindex={index} onClick={(i) => this.albumClicked(i)}/>
+        {front}
         <MusicRight albumSel={sel}/>
       </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class MusicFront extends React.Component {
+export default class MusicFrontSongs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,9 +49,9 @@ export default class MusicFront extends React.Component {
     e.preventDefault();
     this.props.onClick(ind);
   }
-  SongsClicked(e) {
+  AlbumsClicked(e) {
     e.preventDefault();
-    this.props.TabSel(0);
+    this.props.TabSel(1);
   }
 
   render() {
@@ -65,8 +65,8 @@ export default class MusicFront extends React.Component {
       <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, ${color_left}, ${color_right})`, height: "2000px"}}>
         <div className="music-nav">
           <div className="row">
-            <span className="music-nav-item" id="music-nav-item-first" onClick={e => this.SongsClicked(e)}>Songs</span>
-            <span className="music-nav-item">Albums</span>
+            <span className="music-nav-item" id="music-nav-item-first">Songs</span>
+            <span className="music-nav-item" onClick={(e) => this.AlbumsClicked(e)}>Albums</span>
           </div>
         </div>
         {row_counter.map((_, x) => {
