@@ -650,3 +650,16 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
 p {
   margin: 0;
 }
+.album-tracklist-row:hover .track-playbutton {
+  visibility: visible;
+}
+.album-tracklist-row:hover .album-track-num {
+  visibility: hidden;
+}
+.track-playbutton {
+  position: relative;
+  left: 0;
+  top: -20px;
+  color: white;
+  visibility: hidden;
+}
