@@ -64,7 +64,8 @@ export default class MusicRight extends React.Component {
             {tracklist[sel].map((track, i) => {
               return (
                 <div key={i} className="row album-tracklist-row" >
-                  <div className="pull-left col-md-1" style={{padding: 0, marginTop: "2px"}}><p className="album-track-num">{i+1}.</p></div>
+                  <div className="pull-left col-md-1" style={{padding: 0, marginTop: "2px", height: "20px"}}><p className="album-track-num">{i+1}.</p>
+                  <span className="glyphicon glyphicon-play track-playbutton"></span></div>
                   <div className="pull-right col-md-11 album-tracklist-right" style={{padding: 0, paddingLeft: "10px"}}><p className="album-track">{track}</p></div>
                 </div>
               )
