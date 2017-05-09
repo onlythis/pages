@@ -20,13 +20,13 @@ export default class ResumeContent extends React.Component {
         <div className="panel panel-default">
           <p className="panel-header">OBJECTIVE</p>
           <hr />
-          <p className="panel-content">Experience with full stack web development, and motivated to learn and challenge myself.
+          <p className="panel-content" style={{paddingBottom: "10px"}}>Experience with full stack web development, and motivated to learn and challenge myself.
             I am seeking an opportunity to apply my skills to help your company succeed. </p>
         </div>
         <div className="panel panel-default">
           <p className="panel-header">TECHNICAL EXPERIENCE</p>
           <hr />
-          <p className="panel-content">Python, Java, Javascript, C#, HTML/CSS, SQL, Scala, Github, Android Studio, Windows, Excel, Linux, Unity3D, Blender, Wireshark,
+          <p className="panel-content" style={{paddingBottom: "10px"}}>Python, Java, Javascript, C#, HTML/CSS, SQL, Scala, Github, Android Studio, Windows, Excel, Linux, Unity3D, Blender, Wireshark,
             OpenGL, Django, Node.js, React.js, Bootstrap, MongoDB </p>
         </div>
         <div className="panel panel-default">
@@ -97,7 +97,7 @@ export default class ResumeContent extends React.Component {
           <hr />
           <div className="row res-row">
             <div className="col-md-6">
-              <p className="panel-header-left p-edu" id="work-panel">B.A. in Computer Science <br/> GPA: 3.00</p>
+              <p className="panel-header-left p-edu">B.A. in Computer Science <br/> GPA: 3.00</p>
             </div>
             <div className="col-md-6">
               <p className="panel-header-right" id="edu-years">University of Massachusetts, Amherst  <br/> 2013 - 2016</p>

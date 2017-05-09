@@ -81,7 +81,6 @@ class Music extends React.Component {
   render () {
     var index = this.state.index;
     var sel = this.state.albumSelected;
-    console.log(sel);
     return (
       <div>
         <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
