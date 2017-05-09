@@ -478,8 +478,26 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   background-image: url('../img/madeinheights.jpg');
 }
 .music-front-container {
-  padding-top: 90px;
+  padding-top: 30px;
   padding-bottom: 10px;
+}
+.music-nav {
+  padding-bottom: 30px;
+  text-align: center;
+}
+#music-nav-item-first{
+  margin-left: 0;
+}
+.music-nav-item {
+  color: white;
+  font-size: 16px;
+  margin-left: 15px;
+  font-weight: bold;
+  transition: all .2s;
+}
+.music-nav-item:hover {
+  color: rgb(200, 200, 200) !important;
+  cursor: pointer;
 }
 .album-cover {
   width: 18.5vw;
