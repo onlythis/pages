@@ -21,10 +21,10 @@ export default class MusicFrontSongs extends React.Component {
       ],
       shuffler: [0,1,2],
       shuffled: [],
-      row_counter: [0,1,2]
+      row_counter: [0,1,2],
+      tracklist: [["Melon", "Honey", "Sunroof", "There For You", "The World"], ["Intro (Neon City)", "Cold Blooded", "In the Morning", "Secret Weapon", "Electrify Me", "Numb"], ["Death", "Pirouette", "Murakami", "Mantis", "Panther", "Ghosts", "Lunette"]],
     }
   }
-
   componentWillMount() {
     var row_counter = this.state.row_counter;
     var shuffler = this.state.shuffler;
@@ -40,11 +40,9 @@ export default class MusicFrontSongs extends React.Component {
     });
     this.setState({shuffled});
   }
-
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-
   albumSelect(e, ind) {
     e.preventDefault();
     this.props.onClick(ind);
@@ -53,7 +51,6 @@ export default class MusicFrontSongs extends React.Component {
     e.preventDefault();
     this.props.TabSel(1);
   }
-
   render() {
     var tabindex = this.props.tabindex;
     var color_left = this.state.backgroundColors[tabindex];
@@ -61,39 +58,41 @@ export default class MusicFrontSongs extends React.Component {
     var albums = this.state.albums;
     var row_counter = this.state.row_counter;
     var shuffled = this.state.shuffled;
+    var tracklist = this.state.tracklist;
+    var count = 0;
     return (
       <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, ${color_left}, ${color_right})`, height: "2000px"}}>
         <div className="music-nav">
           <div className="row">
-            <span className="music-nav-item" id="music-nav-item-first">Songs</span>
+            <span className="music-nav-item music-nav-item-active" id="music-nav-item-first">Songs</span>
             <span className="music-nav-item" onClick={(e) => this.AlbumsClicked(e)}>Albums</span>
           </div>
         </div>
-        {row_counter.map((_, x) => {
+        {tracklist.map((artist, i) => {
           return (
-            <div key={x} className="row">
-              {albums.map((album, i) => {
-                let ind = shuffled[x][i];
+            <div key={i}>
+              {artist.map((song, j) => {
+                count+=1;
                 return (
-                  <div key={i}>
-                    <div className="col-md-4 album-cont">
-                      <div className="row music-img">
-                        <div className={`album-cover ${albums[ind].cover}`} onClick={e => this.albumSelect(e, ind)}>
-                          <div className="playbutton">
-                            <span className="glyphicon glyphicon-play"></span>
-                          </div>
-                        </div>
+                  <div key={j} className="row song-row">
+                    <div className="col-md-1 song-num-button">
+                      <div className="rack-count-num" style={{height: "40px"}}><p className="song-track-num">{count}) </p>
+                      <span className="glyphicon glyphicon-play song-playbutton"></span></div>
+                    </div>
+                    <div className="col-md-11">
+                      <div className="row">
+                        <a className="song-title">{song}</a>
                       </div>
-                      <div className="img-info">
-                        <div className="row">
-                          <a className="album-title">{albums[ind].title}</a> • <a className="artist-name">{albums[ind].artist}</a>
-                        </div>
+                      <div className="row">
+                        <a className="song-artist">{albums[i].artist} •</a> <a className="song-album">{albums[i].title}</a>
                       </div>
                     </div>
                   </div>
-                )})}
-              </div>
-            )})}
+                )
+              })}
+            </div>
+          )
+        })}
           </div>
         )
       }

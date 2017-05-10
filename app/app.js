@@ -15,6 +15,7 @@ import MusicFront from './components/MusicFront';
 import MusicFrontSongs from './components/MusicFrontSongs';
 import MusicLeft from './components/MusicLeft';
 import MusicRight from './components/MusicRight';
+import MusicBottom from './components/MusicBottom';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';
 
 class App extends React.Component {
@@ -96,6 +97,7 @@ class Music extends React.Component {
         <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
         {front}
         <MusicRight albumSel={sel}/>
+        <MusicBottom/>
       </div>
     )
   }

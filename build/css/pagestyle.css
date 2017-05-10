@@ -492,12 +492,17 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   color: white;
   font-size: 16px;
   margin-left: 15px;
+  padding: 5px;
+  border: 3px solid transparent;
   font-weight: bold;
   transition: all .2s;
 }
 .music-nav-item:hover {
   color: rgb(200, 200, 200) !important;
   cursor: pointer;
+}
+.music-nav-item-active {
+  border: 3px solid white;
 }
 .album-cover {
   width: 18.5vw;
@@ -635,7 +640,8 @@ button.fav-red, button.fav-red:hover, button.fav-red:focus {
   padding-left: 5px;
 }
 .album-similar {
-  top: calc(100% - 124px);
+  bottom: 75px;
+  padding-bottom: 15px;
   position: fixed;
 }
 .album-track {
@@ -680,4 +686,49 @@ p {
   top: -20px;
   color: white;
   visibility: hidden;
+}
+.song-title, .song-title:hover {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: default;
+}
+.song-artist, .song-album, .song-artist:hover, .song-album:hover {
+  color: gray;
+  font-size: 14px;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: default;
+}
+.song-row {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.song-row:hover .song-playbutton {
+  visibility: visible;
+}
+.song-row:hover .song-track-num {
+  visibility: hidden;
+}
+.song-playbutton {
+  position: relative;
+  left: 0;
+  top: -34px;
+  color: white;
+  visibility: hidden;
+  font-size: 30px;
+}
+.song-track-num {
+  color: gray;
+  margin-top: 2px;
+  font-size: 24px;
+}
+.song-row:hover {
+  background-color: rgba(22, 20, 26, 0.4) !important;
+}
+.music-bottom {
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+  background-color: rgb(45,45,45) !important;
 }

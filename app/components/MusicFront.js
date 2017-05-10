@@ -66,7 +66,7 @@ export default class MusicFront extends React.Component {
         <div className="music-nav">
           <div className="row">
             <span className="music-nav-item" id="music-nav-item-first" onClick={e => this.SongsClicked(e)}>Songs</span>
-            <span className="music-nav-item">Albums</span>
+            <span className="music-nav-item music-nav-item-active">Albums</span>
           </div>
         </div>
         {row_counter.map((_, x) => {
