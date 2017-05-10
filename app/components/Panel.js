@@ -27,9 +27,9 @@ export default class Panel extends React.Component {
       <div>
         <div className="col-md-6">
           <div className="panel panel-default panel-frontpage">
-            <Link to={panels[0].link} className="frontpage-link"><p className="panel-header">{panels[0].title}</p></Link>
+            <Link to={panels[2].link} className="frontpage-link"><p className="panel-header">{panels[2].title}</p></Link>
             <hr />
-            <Link to={panels[0].link}><div className={`panel-img ${panels[0].imgclassname}`}>
+            <Link to={panels[2].link}><div className={`panel-img ${panels[2].imgclassname}`}>
             </div></Link>
           </div>
         </div>
@@ -43,9 +43,9 @@ export default class Panel extends React.Component {
         </div>
         <div className="col-md-6">
           <div className="panel panel-default panel-frontpage">
-            <Link to={panels[2].link} className="frontpage-link"><p className="panel-header">{panels[2].title}</p></Link>
+            <Link to={panels[0].link} className="frontpage-link"><p className="panel-header">{panels[0].title}</p></Link>
             <hr />
-            <Link to={panels[2].link}><div className={`panel-img ${panels[2].imgclassname}`}>
+            <Link to={panels[0].link}><div className={`panel-img ${panels[0].imgclassname}`}>
             </div></Link>
           </div>
         </div>

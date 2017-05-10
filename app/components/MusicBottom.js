@@ -4,36 +4,27 @@ export default class MusicBottom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      backgroundColors: ['rgba(80,20,20,20)','rgba(20,80,20,20)', 'rgba(20,20,80,20)'],
-      albums: [
-        { cover: "davidcutterimg",
-          title: "S2",
-          artist: "David Cutter"
-        },
-        { cover: "genwhyimg",
-          title: "GENERATIONWHY",
-          artist: "ZHU"
-        },
-        { cover: "madeinheightsimg",
-          title: "Without My Enemy What Would I Do",
-          artist: "Made in Heights"
-        }
-      ],
-      tracklist: [["Melon", "Honey", "Sunroof", "There For You", "The World"], ["Intro (Neon City)", "Cold Blooded", "In the Morning", "Secret Weapon", "Electrify Me", "Numb"], ["Death", "Pirouette", "Murakami", "Mantis", "Panther", "Ghosts", "Lunette"]],
 
     }
   }
-
-
   render() {
-    var tabindex = this.props.tabindex;
-    var albums = this.state.albums;
-    var tracklist = this.state.tracklist;
-    var count = 0;
+    var track = this.props.trackInfo;
     return (
       <div className = "music-bottom affix">
-        <div className="col-md-3">
-          Hello
+        <div className="col-md-3 no-padding">
+          <div className={`col-md-4 music-bottom-albumcover ${track[3]}`}>
+          </div>
+          <div className="col-md-8">
+            <div className="row music-bottom-trackname">
+              {track[2]}
+            </div>
+            <div className="row music-bottom-trackartist">
+              {track[0]}
+            </div>
+            <div className="row music-bottom-trackalbum">
+              {track[1]}
+            </div>
+          </div>
         </div>
         <div className="col-md-6">
           Hello

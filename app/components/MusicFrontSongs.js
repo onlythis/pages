@@ -51,6 +51,14 @@ export default class MusicFrontSongs extends React.Component {
     e.preventDefault();
     this.props.TabSel(1);
   }
+  SongClicked(e, i, j) {
+    e.preventDefault();
+    let artist = this.state.albums[i].artist;
+    let album = this.state.albums[i].title;
+    let song = this.state.tracklist[i][j];
+    let cover = this.state.albums[i].cover;
+    this.props.TrackSel(artist, album, song, cover);
+  }
   render() {
     var tabindex = this.props.tabindex;
     var color_left = this.state.backgroundColors[tabindex];
@@ -74,7 +82,7 @@ export default class MusicFrontSongs extends React.Component {
               {artist.map((song, j) => {
                 count+=1;
                 return (
-                  <div key={j} className="row song-row">
+                  <div key={j} className="row song-row" onClick={(e) => this.SongClicked(e, i, j)}>
                     <div className="col-md-1 song-num-button">
                       <div className="rack-count-num" style={{height: "40px"}}><p className="song-track-num">{count}) </p>
                       <span className="glyphicon glyphicon-play song-playbutton"></span></div>

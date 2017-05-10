@@ -732,3 +732,15 @@ p {
   width: 100%;
   background-color: rgb(45,45,45) !important;
 }
+.music-bottom-trackname, .music-bottom-trackartist, .music-bottom-trackalbum {
+  color: white;
+  font-size: 14px;
+}
+.music-bottom-albumcover {
+  width: 75px;
+  height: 75px;
+  background-size: contain;
+}
+.no-padding {
+  padding: 0;
+}

@@ -70,7 +70,8 @@ class Music extends React.Component {
     this.state = {
       index: 1,
       albumSelected: 1,
-      tabSel: 1
+      tabSel: 0,
+      currTrack: []
     };
   }
   leftClicked(ind){
@@ -84,20 +85,26 @@ class Music extends React.Component {
   tabSel(i) {
     this.setState({tabSel: i});
   }
+  trackSel(artist, album, song, cover) {
+    let curr = new Array(artist, album, song, cover);
+    this.setState({currTrack: curr});
+  }
   render () {
     var index = this.state.index;
     var sel = this.state.albumSelected;
+    var track = this.state.currTrack;
     if(this.state.tabSel){
       var front = <MusicFront tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}/>;
     } else {
-      var front = <MusicFrontSongs tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}/>;
+      var front = <MusicFrontSongs tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}
+                  TrackSel={(artist, album, song, cover) => this.trackSel(artist, album, song, cover)}/>;
     }
     return (
       <div>
         <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
         {front}
         <MusicRight albumSel={sel}/>
-        <MusicBottom/>
+        <MusicBottom trackInfo={track}/>
       </div>
     )
   }
