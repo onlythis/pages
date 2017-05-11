@@ -16,6 +16,9 @@ export default class MusicBottom extends React.Component {
     script.async = true;
     document.body.appendChild(script);
   }
+  progressPause() {
+    window.progressPause();
+  }
   render() {
     var track = this.props.trackInfo;
     return (
@@ -38,7 +41,7 @@ export default class MusicBottom extends React.Component {
         <div className="col-md-6 music-bottom-controls">
           <div className="row music-controls-glyphs">
             <span className="glyphicon glyphicon-random"></span>
-            <span className="glyphicon glyphicon-step-backward"></span>
+            <span className="glyphicon glyphicon-step-backward" onClick={(e) => this.progressPause()}></span>
             <span className="glyphicon glyphicon-play" onClick={(e) => this.progressBar()}></span>
             <span className="glyphicon glyphicon-step-forward"></span>
             <span className="glyphicon glyphicon-repeat"></span>
@@ -48,7 +51,7 @@ export default class MusicBottom extends React.Component {
           </div>
         </div>
         <div className="col-md-3">
-          Hello
+          <div className="volume"> <span className="volumeBar"></span> </div>
         </div>
       </div>
     )

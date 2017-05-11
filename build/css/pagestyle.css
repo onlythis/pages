@@ -767,3 +767,21 @@ p {
   background-color: red;
   height: inherit;
 }
+.volume {
+   position:relative;
+   cursor:pointer;
+   width:50%;
+   height:6px;
+   float: right;
+   margin-top:40px;
+   background-color:#000;
+}
+.volumeBar {
+   display:block;
+   height:6px;
+   position:absolute;
+   top:0;
+   left:0;
+   background-color:red;
+   width: 90%;
+}
