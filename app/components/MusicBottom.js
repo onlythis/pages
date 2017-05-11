@@ -4,8 +4,17 @@ export default class MusicBottom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      width: 1
     }
+  }
+
+  progressBar() {
+    var width = parseInt(this.state.width);
+    const script = document.createElement("script");
+    script.src = "scripts/progressBarMove.js";
+    script.setAttribute("width", width.toString());
+    script.async = true;
+    document.body.appendChild(script);
   }
   render() {
     var track = this.props.trackInfo;
@@ -26,8 +35,17 @@ export default class MusicBottom extends React.Component {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
-          Hello
+        <div className="col-md-6 music-bottom-controls">
+          <div className="row music-controls-glyphs">
+            <span className="glyphicon glyphicon-random"></span>
+            <span className="glyphicon glyphicon-step-backward"></span>
+            <span className="glyphicon glyphicon-play" onClick={(e) => this.progressBar()}></span>
+            <span className="glyphicon glyphicon-step-forward"></span>
+            <span className="glyphicon glyphicon-repeat"></span>
+          </div>
+          <div className="row progress-bar-cont">
+            <div className="progress-bar" id="progress-bar"></div>
+          </div>
         </div>
         <div className="col-md-3">
           Hello
