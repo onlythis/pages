@@ -4,23 +4,39 @@ export default class MusicBottom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: 1
+      playing: false,
     }
+    this.progressBar();
   }
-
   progressBar() {
-    var width = parseInt(this.state.width);
     const script = document.createElement("script");
     script.src = "scripts/progressBarMove.js";
-    script.setAttribute("width", width.toString());
     script.async = true;
     document.body.appendChild(script);
   }
   progressPause() {
     window.progressPause();
   }
+  progressResume() {
+    window.progressResume();
+  }
+  playButton() {
+    if(this.state.playing) {
+      this.progressPause();
+      this.setState({playing: false});
+    } else {
+      this.progressResume();
+      this.setState({playing: true});
+    }
+  }
   render() {
     var track = this.props.trackInfo;
+    if(this.state.playing){
+      var playButton = <span className="glyphicon glyphicon-pause" onClick={(e) => this.playButton()}></span>;
+    } else {
+      var playButton = <span className="glyphicon glyphicon-play" onClick={(e) => this.playButton()}></span>;
+    }
+
     return (
       <div className = "music-bottom affix">
         <div className="col-md-3 no-padding">
@@ -42,8 +58,8 @@ export default class MusicBottom extends React.Component {
           <div className="row music-controls-glyphs">
             <span className="glyphicon glyphicon-random"></span>
             <span className="glyphicon glyphicon-step-backward" onClick={(e) => this.progressPause()}></span>
-            <span className="glyphicon glyphicon-play" onClick={(e) => this.progressBar()}></span>
-            <span className="glyphicon glyphicon-step-forward"></span>
+            {playButton}
+            <span className="glyphicon glyphicon-step-forward" onClick={(e) => this.progressResume()}></span>
             <span className="glyphicon glyphicon-repeat"></span>
           </div>
           <div className="row progress-bar-cont">
@@ -51,7 +67,12 @@ export default class MusicBottom extends React.Component {
           </div>
         </div>
         <div className="col-md-3">
-          <div className="volume"> <span className="volumeBar"></span> </div>
+          <div className="volume">
+            <span className="volume-glyph glyphicon glyphicon-volume-up"></span>
+            <div className="volume-cont">
+              <span className="volume-bar"></span>
+            </div>
+          </div>
         </div>
       </div>
     )
