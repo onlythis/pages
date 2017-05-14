@@ -769,19 +769,23 @@ p {
 }
 .volume {
    position:relative;
-   cursor:pointer;
-   width:50%;
-   height:6px;
+   width:65%;
+   height:20px;
    float: right;
-   margin-top:40px;
-   background-color:#000;
+   margin-top:30px;
+   color: white;
 }
-.volumeBar {
+.volume-cont {
+  width: 80%;
+  height: 6px;
+  margin-top: 8px;
+  float: right;
+  background-color:#000;
+  cursor:pointer;
+}
+.volume-bar {
    display:block;
-   height:6px;
-   position:absolute;
-   top:0;
-   left:0;
+   height: inherit;
    background-color:red;
-   width: 90%;
+   width: 50%;
 }
