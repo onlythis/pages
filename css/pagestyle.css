@@ -776,7 +776,7 @@ p {
    color: white;
 }
 .volume-cont {
-  width: 80%;
+  width: calc(100% - 25px);
   height: 6px;
   margin-top: 8px;
   float: right;
