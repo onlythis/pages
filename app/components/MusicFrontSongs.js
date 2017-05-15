@@ -53,11 +53,7 @@ export default class MusicFrontSongs extends React.Component {
   }
   SongClicked(e, i, j) {
     e.preventDefault();
-    let artist = this.state.albums[i].artist;
-    let album = this.state.albums[i].title;
-    let song = this.state.tracklist[i][j];
-    let cover = this.state.albums[i].cover;
-    this.props.TrackSel(artist, album, song, cover);
+    this.props.TrackSel(i, j);
   }
   render() {
     var tabindex = this.props.tabindex;

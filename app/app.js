@@ -85,8 +85,8 @@ class Music extends React.Component {
   tabSel(i) {
     this.setState({tabSel: i});
   }
-  trackSel(artist, album, song, cover) {
-    let curr = new Array(artist, album, song, cover);
+  trackSel(i, j) {
+    let curr = new Array(i, j);
     this.setState({currTrack: curr});
   }
   render () {
@@ -97,7 +97,7 @@ class Music extends React.Component {
       var front = <MusicFront tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}/>;
     } else {
       var front = <MusicFrontSongs tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}
-                  TrackSel={(artist, album, song, cover) => this.trackSel(artist, album, song, cover)}/>;
+                  TrackSel={(i, j) => this.trackSel(i, j)}/>;
     }
     return (
       <div>
