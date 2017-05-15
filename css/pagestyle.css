@@ -741,6 +741,12 @@ p {
   height: 75px;
   background-size: contain;
 }
+.music-bottom-text-cont {
+  margin-left: 90px;
+}
+.music-bottom-text-cont > .row {
+  height: 20px;
+}
 .no-padding {
   padding: 0;
 }
@@ -758,12 +764,12 @@ p {
 .progress-bar-cont {
   margin: 0 auto;
   margin-top: 15px;
-  width: 75%;
+  width: 90%;
   background-color: white;
   height: 6px;
 }
 .progress-bar {
-  width: 1%;
+  width: 0%;
   background-color: red;
   height: inherit;
 }

@@ -1,3 +1,6 @@
+
+//move this into musicbottom.js
+
 var move = {
   id: 0,
   bar: document.getElementById("progress-bar"),
@@ -8,7 +11,12 @@ var move = {
   frame: function() {
     if (move.width >= 100) {
       clearInterval(move.id);
+      window.musicBottom.nextTrack();
+      window.musicBottom.playButton();
+      move.width = .1;
+      move.bar.style.width = move.width + '%';
     } else {
+      //console.log(typeof move.bar.style.width); = string
       move.width+=.1;
       move.bar.style.width = move.width + '%';
     }
