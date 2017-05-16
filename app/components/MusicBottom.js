@@ -54,6 +54,7 @@ export default class MusicBottom extends React.Component {
     } else {
       this.setState({currTrack: new Array(this.state.currTrack[0], this.state.currTrack[1]-1)});
     }
+    window.moveNext(this.state.playing);
   }
   nextTrack() {
       if(this.state.currTrack[0]==2 && this.state.currTrack[1]==6){
@@ -68,7 +69,7 @@ export default class MusicBottom extends React.Component {
     else {
       this.setState({currTrack: new Array(this.state.currTrack[0], this.state.currTrack[1]+1)});
     }
-
+    window.moveNext(this.state.playing);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({currTrack: nextProps.trackInfo});

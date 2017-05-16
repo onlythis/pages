@@ -5,9 +5,6 @@ var move = {
   id: 0,
   bar: document.getElementById("progress-bar"),
   width: .1,
-  start: function() {
-    move.id = setInterval(move.frame, 50);
-  },
   frame: function() {
     if (move.width >= 100) {
       clearInterval(move.id);
@@ -17,22 +14,31 @@ var move = {
       move.bar.style.width = move.width + '%';
     } else {
       //console.log(typeof move.bar.style.width); = string
+      //this doesnt work here but move.width== the this.width in jumpTo. I can jumpTo somewhere and frame will pick it up from there.
       move.width+=.1;
       move.bar.style.width = move.width + '%';
     }
   },
   pause: function() {
-    clearInterval(move.id);
+    clearInterval(this.id);
   },
   resume: function() {
-    move.id = setInterval(move.frame, 50);
+    this.id = setInterval(this.frame, 50);
   },
   jumpTo: function(x) {
     var pos = x-$('.progress-bar').offset().left;
     var percentage = 100 * pos / $('.progress-bar-cont').width();
     percentage = percentage<=100 ? percentage >=0 ? percentage : 0 : 100;
-    move.width = percentage;
-    move.bar.style.width = percentage + '%';
+    //this works here
+    this.width = percentage;
+    this.bar.style.width = percentage + '%';
+  },
+  restart: function(playing) {
+    clearInterval(this.id);
+    this.jumpTo(0);
+    if(playing) {
+      this.resume();
+    }
   }
 }
 var trackDrag = false;
@@ -46,6 +52,9 @@ function progressPause() {
 }
 function progressResume() {
   move.resume();
+}
+function moveNext(playing) {
+  move.restart(playing);
 }
 
 var volumeDrag = false;
