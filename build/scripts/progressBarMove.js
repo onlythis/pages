@@ -9,7 +9,6 @@ var move = {
     if (move.width >= 100) {
       clearInterval(move.id);
       window.musicBottom.nextTrack();
-      window.musicBottom.playButton();
       move.width = .1;
       move.bar.style.width = move.width + '%';
     } else {

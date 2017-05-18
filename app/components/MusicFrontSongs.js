@@ -64,12 +64,14 @@ export default class MusicFrontSongs extends React.Component {
     var shuffled = this.state.shuffled;
     var tracklist = this.state.tracklist;
     var count = 0;
+    //<div className="music-nav-sideanim-cont"></div>
     return (
       <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, ${color_left}, ${color_right})`, height: "2000px"}}>
         <div className="music-nav">
           <div className="row">
             <span className="music-nav-item music-nav-item-active" id="music-nav-item-first">Songs</span>
-            <span className="music-nav-item" onClick={(e) => this.AlbumsClicked(e)}>Albums</span>
+            <span className="music-nav-item music-nav-item-inactive-right" onClick={(e) => this.AlbumsClicked(e)}>Albums</span>
+
           </div>
         </div>
         {tracklist.map((artist, i) => {

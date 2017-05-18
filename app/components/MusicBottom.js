@@ -37,6 +37,9 @@ export default class MusicBottom extends React.Component {
       this.setState({playing: false});
     } else {
       window.progressResume();
+      if(this.state.currTrack==0){
+        this.setState({currTrack: new Array(0,0)});
+      }
       this.setState({playing: true});
     }
   }
@@ -49,7 +52,7 @@ export default class MusicBottom extends React.Component {
         this.setState({currTrack: new Array(0,4)});
       }
       if(this.state.currTrack[0]==0){
-        this.setState({currTrack: new Array(-1,-1)});
+        this.setState({currTrack: 0});
       }
     } else {
       this.setState({currTrack: new Array(this.state.currTrack[0], this.state.currTrack[1]-1)});

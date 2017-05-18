@@ -65,7 +65,7 @@ export default class MusicFront extends React.Component {
       <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, ${color_left}, ${color_right})`, height: "2000px"}}>
         <div className="music-nav">
           <div className="row">
-            <span className="music-nav-item" id="music-nav-item-first" onClick={e => this.SongsClicked(e)}>Songs</span>
+            <span className="music-nav-item music-nav-item-inactive-left" id="music-nav-item-first" onClick={e => this.SongsClicked(e)}>Songs</span>
             <span className="music-nav-item music-nav-item-active">Albums</span>
           </div>
         </div>

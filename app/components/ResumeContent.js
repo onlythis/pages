@@ -3,95 +3,23 @@ import React from 'react';
 export default class ResumeContent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: 0
-    };
   }
 
-  handleRefresh(e) {
-    e.preventDefault();
-    var value=this.state.value;
-    this.setState({value: value + 1});
-  }
   render() {
-    var value = this.state.value;
     return (
       <div className="col-md-12">
         <div className="panel panel-default">
           <p className="panel-header">OBJECTIVE</p>
           <hr />
-          <p className="panel-content" style={{paddingBottom: "10px"}}>Experience with full stack web development, and motivated to learn and challenge myself.
-            I am seeking an opportunity to apply my skills to help your company succeed. </p>
+          <p className="panel-content" style={{paddingBottom: "10px"}}> Looking for an opportunity to learn, challenge myself, be part of a team, and help you succeed. </p>
         </div>
         <div className="panel panel-default">
           <p className="panel-header">TECHNICAL EXPERIENCE</p>
           <hr />
-          <p className="panel-content" style={{paddingBottom: "10px"}}>Python, Java, Javascript, C#, HTML/CSS, SQL, Scala, Github, Android Studio, Windows, Excel, Linux, Unity3D, Blender, Wireshark,
-            OpenGL, Django, Node.js, React.js, Bootstrap, MongoDB </p>
+          <p className="panel-content" style={{paddingBottom: "10px"}}>Python, Javascript, HTML/CSS, SQL, Android Studio, Wireshark, Windows, Linux,
+            Unity3D, Blender, Github, OpenGL, React.js </p>
         </div>
-        <div className="panel panel-default">
-          <p className="panel-header p-work-exp">WORK EXPERIENCE</p>
-        </div>
-        <div className="row res-row">
-          <div className="col-md-6">
-            <div className="panel panel-default" id="work-panel">
-              <div className="row res-row">
-                <div className="col-md-6">
-                  <p className="panel-header-left">Intern at Kiipo <br/> Taipei, Taiwan</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="panel-header-right">Aug 2016 - Sep 2016</p>
-                </div>
-              </div>
-              <hr />
-              <p className="panel-content work-content">Tasked with improving a working Android app. Conceived wireframe, and designed page layout and flow.
-                Experienced first-hand a small startup company. </p>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="panel panel-default" id="work-panel">
-              <div className="row res-row">
-                <div className="col-md-6">
-                  <p className="panel-header-left">Research Intern at Beth Isreal Deconess Medical Center <br/> Boston, MA</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="panel-header-right">Jun 2016 - Aug 2016</p>
-                </div>
-              </div>
-              <hr />
-              <p className="panel-content work-content">Researched detection of sleeping disorders with ECG wearable monitor. Analyzed data for patterns and classifying
-                sleep stages. Discussed system for sleep doctors and patients to be more connected with Chung-Kang Peng (Harvard Medical School). </p>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="panel panel-default" id="bottom-work-panel">
-              <div className="row res-row">
-                <div className="col-md-6">
-                  <p className="panel-header-left">Lifegaurd at Boston Sports Club <br/> Lexington, MA</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="panel-header-right">Jun 2013 - Sep 2014</p>
-                </div>
-              </div>
-              <hr />
-              <p className="panel-content work-content">Worked together with a small group of people to maintain the pools and enforce the rules. </p>
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="panel panel-default" id="work-panel">
-              <div className="row res-row">
-                <div className="col-md-6">
-                  <p className="panel-header-left">Cashier at Wilson Farm <br/> Lexington, MA</p>
-                </div>
-                <div className="col-md-6">
-                  <p className="panel-header-right">Jun 2013 - Sep 2014</p>
-                </div>
-              </div>
-              <hr />
-              <p className="panel-content work-content">Greeted customers kindly, and assisted them with groceries.  </p>
-            </div>
-          </div>
-        </div>
+
         <div className="panel panel-default">
           <p className="panel-header">EDUCATION</p>
           <hr />
@@ -146,12 +74,76 @@ export default class ResumeContent extends React.Component {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="panel panel-default" id="work-panel">
+            <div className="panel panel-default" id="bottom-work-panel">
               <p className="panel-header">Computer Networks</p>
               <hr />
               <p className="panel-content work-content">Studied <i>Computer Networking: A Top-Down Approach</i> exploring <b>TCP/IP</b>, <b>HTTP</b>, routing algorithms to understand
                 how devices are connected. Used Wireshark to analyze network packets. Other material discussed: Types of packet delay/lost, network security,
                 SMTP, DNS, multiplexing, UDP, reliable data transfer, router architecture, and subnetting.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="panel panel-default">
+          <p className="panel-header p-work-exp">WORK EXPERIENCE</p>
+        </div>
+        <div className="row res-row">
+          <div className="col-md-6">
+            <div className="panel panel-default" id="work-panel">
+              <div className="row res-row">
+                <div className="col-md-6">
+                  <p className="panel-header-left">Intern at Kiipo <br/> Taipei, Taiwan</p>
+                </div>
+                <div className="col-md-6">
+                  <p className="panel-header-right">Aug 2016 - Sep 2016</p>
+                </div>
+              </div>
+              <hr />
+              <p className="panel-content work-content">Tasked with improving a working Android app. Conceived wireframe, and designed page layout and flow.
+                Experienced first-hand a small startup company. </p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="panel panel-default" id="work-panel">
+              <div className="row res-row">
+                <div className="col-md-6">
+                  <p className="panel-header-left">Research Intern at Beth Isreal Deconess Medical Center <br/> Boston, MA</p>
+                </div>
+                <div className="col-md-6">
+                  <p className="panel-header-right">Jun 2016 - Aug 2016</p>
+                </div>
+              </div>
+              <hr />
+              <p className="panel-content work-content">Researched detection of sleeping disorders with ECG wearable monitor. Analyzed data for patterns and classifying
+                sleep stages. Discussed system for sleep doctors and patients to be more connected with Chung-Kang Peng (Harvard Medical School). </p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="panel panel-default" id="work-panel">
+              <div className="row res-row">
+                <div className="col-md-6">
+                  <p className="panel-header-left">Lifegaurd at Boston Sports Club <br/> Lexington, MA</p>
+                </div>
+                <div className="col-md-6">
+                  <p className="panel-header-right">Jun 2013 - Sep 2014</p>
+                </div>
+              </div>
+              <hr />
+              <p className="panel-content work-content">Worked together with a small group of people to maintain the pools and enforce the rules. </p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="panel panel-default" id="work-panel">
+              <div className="row res-row">
+                <div className="col-md-6">
+                  <p className="panel-header-left">Cashier at Wilson Farm <br/> Lexington, MA</p>
+                </div>
+                <div className="col-md-6">
+                  <p className="panel-header-right">Jun 2013 - Sep 2014</p>
+                </div>
+              </div>
+              <hr />
+              <p className="panel-content work-content">Greeted customers kindly, and assisted them with groceries.  </p>
             </div>
           </div>
         </div>
