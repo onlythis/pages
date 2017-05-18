@@ -11,13 +11,14 @@ export default class ResumeContent extends React.Component {
         <div className="panel panel-default">
           <p className="panel-header">OBJECTIVE</p>
           <hr />
-          <p className="panel-content" style={{paddingBottom: "10px"}}> Looking for an opportunity to learn, challenge myself, be part of a team, and help you succeed. </p>
+          <p className="panel-content" style={{paddingBottom: "10px"}}>
+          Looking for an opportunity to learn, challenge myself, be part of a team, and help you succeed. </p>
         </div>
         <div className="panel panel-default">
           <p className="panel-header">TECHNICAL EXPERIENCE</p>
           <hr />
-          <p className="panel-content" style={{paddingBottom: "10px"}}>Python, Javascript, HTML/CSS, SQL, Android Studio, Wireshark, Windows, Linux,
-            Unity3D, Blender, Github, OpenGL, React.js </p>
+          <p className="panel-content" style={{paddingBottom: "10px"}}>Python, Javascript, HTML/CSS, SQL, Android Studio, Github, Wireshark, Windows, Linux,
+            Unity3D, Blender, OpenGL, React.js </p>
         </div>
 
         <div className="panel panel-default">
@@ -37,18 +38,16 @@ export default class ResumeContent extends React.Component {
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Artificial Intelligence</p>
               <hr />
-              <p className="panel-content work-content">Constructed database of stock information with <b>SQL</b>, <b>Python</b>. Used <b>scikit-learn</b> and other python packages to
-                classify data, and predict changes in price. Gathered features (price, volume, ebitda, moving average, etc) from each Fortune 500 company. Used
-                sqlite3 to store data in a db file. Trained and predicted with neurolab’s neural network, scikit-learn’s naive bayes and support vector machine.   </p>
+              <p className="panel-content work-content">Constructed database of stock information with <b>SQL</b>, <b>Python</b>. Used <b>scikit-learn</b> and
+              other python packages to classify data, and predict changes in price.</p>
             </div>
           </div>
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Human Computer Interaction</p>
               <hr />
-              <p className="panel-content work-content">Developed wireframe with <b>HTML/CSS</b> for “Snap n’ Snack” a cooking/recipe website optimizing user experience by
-                user testing and feedback to generate new prototypes. Implemented <b>Norman principles</b>: minimize gulf of evaluation (state of a system),
-                execution (intentions vs what system allows), feedback, visibility, consistency, etc.     </p>
+              <p className="panel-content work-content">Developed wireframe with <b>HTML/CSS</b> for “Snap n’ Snack” a cooking/recipe website optimizing user
+              experience by implementing <b>Norman principles</b>, prototyping, and user testing.</p>
             </div>
           </div>
         </div>
@@ -57,29 +56,24 @@ export default class ResumeContent extends React.Component {
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Computer Graphics</p>
               <hr />
-              <p className="panel-content work-content">Applied hierarchical modeling, <b>parametric curves</b>, and ray tracing with <b>OpenGL</b> to object inheritance and
-                3D geometry. Objects inherit translation, rotation, and scale from their parent object in hierarchical modeling. Wrote program to build B-spline,
-                bezier, quadratic curves from points manipulated by clicking. Then rotated the curves 360 degrees to shape an object. Detected collisions from rays
-                based on object’s shape and position.  </p>
+              <p className="panel-content work-content">Created a stack of multiple objects position, rotation, and scale. Wrote mathematical formula to
+              draw <b>parametric curves</b> between points. Ray traced with <b>OpenGL</b> to render reflections and refraction.</p>
             </div>
           </div>
           <div className="col-md-6">
             <div className="panel panel-default" id="work-panel">
               <p className="panel-header">Mobile Health Sensing</p>
               <hr />
-              <p className="panel-content work-content">Produced an app with Android Studio/<b>Java</b> that collected data from cell phone sensors to smooth, denoise, and
-                classify data. Used <b>DBScan</b> on GPS locations to find where we spend most of our time. Wrote code to detect steps by peak detection. Sent data to server
-                to evaluate with machine learning techniques. Displayed graphs of data in real time. Collaborated with a couple other students and used Github to
-                share work on our app that detects steps, speech, heart-rate (PPG), and location. </p>
+              <p className="panel-content work-content">Produced an app with Android Studio/<b>Java</b> that collected data from cell phone sensors to smooth,
+              and denoise. Used <b>DBScan</b> and peak detection to classify data. Displayed graphs of data being captured in real time.</p>
             </div>
           </div>
           <div className="col-md-6">
             <div className="panel panel-default" id="bottom-work-panel">
               <p className="panel-header">Computer Networks</p>
               <hr />
-              <p className="panel-content work-content">Studied <i>Computer Networking: A Top-Down Approach</i> exploring <b>TCP/IP</b>, <b>HTTP</b>, routing algorithms to understand
-                how devices are connected. Used Wireshark to analyze network packets. Other material discussed: Types of packet delay/lost, network security,
-                SMTP, DNS, multiplexing, UDP, reliable data transfer, router architecture, and subnetting.</p>
+              <p className="panel-content work-content">Studied <i>Computer Networking: A Top-Down Approach</i> exploring <b>TCP/IP</b>, <b>HTTP</b>,
+              routing algorithms to understand how devices are connected. Used Wireshark to analyze network packets.</p>
             </div>
           </div>
         </div>
@@ -114,8 +108,8 @@ export default class ResumeContent extends React.Component {
                 </div>
               </div>
               <hr />
-              <p className="panel-content work-content">Researched detection of sleeping disorders with ECG wearable monitor. Analyzed data for patterns and classifying
-                sleep stages. Discussed system for sleep doctors and patients to be more connected with Chung-Kang Peng (Harvard Medical School). </p>
+              <p className="panel-content work-content">Researched detection of sleeping disorders with ECG wearable monitor. Analyzed data for patterns and
+              classifying sleep stages. Discussed system for sleep doctors and patients to be more connected with Chung-Kang Peng (Harvard Medical School). </p>
             </div>
           </div>
           <div className="col-md-6">
