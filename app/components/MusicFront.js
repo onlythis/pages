@@ -24,7 +24,6 @@ export default class MusicFront extends React.Component {
       row_counter: [0,1,2]
     }
   }
-
   componentWillMount() {
     var row_counter = this.state.row_counter;
     var shuffler = this.state.shuffler;
@@ -40,16 +39,14 @@ export default class MusicFront extends React.Component {
     });
     this.setState({shuffled});
   }
-
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-
   albumSelect(e, ind) {
     e.preventDefault();
-    this.props.onClick(ind);
+    this.props.albumClick(ind);
   }
-  SongsClicked(e) {
+  TabClicked(e) {
     e.preventDefault();
     this.props.TabSel(0);
   }
@@ -65,7 +62,7 @@ export default class MusicFront extends React.Component {
       <div className = "col-md-8 music-front-container" style={{background: `linear-gradient(to right, ${color_left}, ${color_right})`, height: "2000px"}}>
         <div className="music-nav">
           <div className="row">
-            <span className="music-nav-item music-nav-item-inactive-left" id="music-nav-item-first" onClick={e => this.SongsClicked(e)}>Songs</span>
+            <span className="music-nav-item music-nav-item-inactive-left" id="music-nav-item-first" onClick={e => this.TabClicked(e)}>Songs</span>
             <span className="music-nav-item music-nav-item-active">Albums</span>
           </div>
         </div>

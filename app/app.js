@@ -94,16 +94,15 @@ class Music extends React.Component {
     var sel = this.state.albumSelected;
     var track = this.state.currTrack;
     if(this.state.tabSel){
-      var front = <MusicFront tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}/>;
+      var front = <MusicFront tabindex={index} albumClick={(i) => this.trackSel(i, -1)} TabSel={(i) => this.tabSel(i)}/>;
     } else {
-      var front = <MusicFrontSongs tabindex={index} onClick={(i) => this.albumClicked(i)} TabSel={(i) => this.tabSel(i)}
-                  TrackSel={(i, j) => this.trackSel(i, j)}/>;
+      var front = <MusicFrontSongs tabindex={index} TabSel={(i) => this.tabSel(i)} TrackSel={(i, j) => this.trackSel(i, j)}/>;
     }
     return (
       <div>
         <MusicLeft onSelect={(e) => this.leftClicked(e)}/>
         {front}
-        <MusicRight albumSel={sel}/>
+        <MusicRight currTrack={track}/>
         <MusicBottom trackInfo={track}/>
       </div>
     )

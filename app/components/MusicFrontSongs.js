@@ -43,11 +43,7 @@ export default class MusicFrontSongs extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-  albumSelect(e, ind) {
-    e.preventDefault();
-    this.props.onClick(ind);
-  }
-  AlbumsClicked(e) {
+  TabClicked(e) {
     e.preventDefault();
     this.props.TabSel(1);
   }
@@ -70,7 +66,7 @@ export default class MusicFrontSongs extends React.Component {
         <div className="music-nav">
           <div className="row">
             <span className="music-nav-item music-nav-item-active" id="music-nav-item-first">Songs</span>
-            <span className="music-nav-item music-nav-item-inactive-right" onClick={(e) => this.AlbumsClicked(e)}>Albums</span>
+            <span className="music-nav-item music-nav-item-inactive-right" onClick={(e) => this.TabClicked(e)}>Albums</span>
 
           </div>
         </div>

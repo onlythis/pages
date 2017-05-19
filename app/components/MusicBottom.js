@@ -85,7 +85,7 @@ export default class MusicBottom extends React.Component {
       var song = this.state.tracklist[trackInd[0]][trackInd[1]];
       var cover = this.state.albums[trackInd[0]].cover;
     } catch(e) {
-      var artist, album, song, cover = null;
+      var artist = null, album = null, song = null, cover = null;
     }
     if(this.state.playing){
       var playButton = <span className="glyphicon glyphicon-pause" onClick={(e) => this.playButton()}></span>;
